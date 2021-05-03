@@ -103,11 +103,8 @@ int main()
                 break;
 
 	            case 5:
-                printf("Ordenar los empleados\n");
-                system("pause");
                 ordenarEmpleadosPorCriterios(nomina, TAM);
-                //submenu
-	            break;
+                break;
 
 	            case 6:
                 printf("Informes de empleados\n");

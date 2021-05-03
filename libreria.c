@@ -333,6 +333,7 @@ int modificarEmpleado(eEmpleado lista[], int tamanio)
 
     return todoOk;
 }
+}
 
 void ordenarEmpleadosPorCriterios(eEmpleado lista[], int tamanio)
 {
@@ -509,6 +510,7 @@ void ordenarEmpleadosPorCriterios(eEmpleado lista[], int tamanio)
 int harcodear(eEmpleado lista[], int tamanio, int cantidadACargar, int* pLegajo)
 {
     int todoOk = 0;
+    int cantidad = 0;
 
     if(lista != NULL && tamanio > 0 && cantidadACargar > 0 && pLegajo != NULL)
     {
@@ -521,11 +523,16 @@ int harcodear(eEmpleado lista[], int tamanio, int cantidadACargar, int* pLegajo)
             lista[i].sueldo = sueldos[i];
             lista[i].sexo = sexos[i];
             lista[i].fechaIngreso = fechas[i];
+            lista[i].idSector = 23;
             lista[i].isEmpty = 0;
-            todoOk ++;
+            cantidad ++;
 
         }
     }
-    return todoOk;
+
+
+       return 0;
 }
+
+
 
