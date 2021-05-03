@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1619821129 source:c:\users\user\desktop\abm_empleados\libreria.c
+	"libreria.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1619824783 c:\users\user\desktop\abm_empleados\libreria.h
+
+1619826663 source:c:\users\user\desktop\abm_empleados\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"libreria.h"
+
