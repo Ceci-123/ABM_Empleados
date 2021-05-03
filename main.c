@@ -2,7 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include "libreria.h"
-#define TAM 5
+//#include "datawarehouse.h"
+#define TAM 8
 
 
 int main()
@@ -12,10 +13,12 @@ int main()
     int nextLegajo = 200;
     int devolucion;
     eEmpleado nomina[TAM];
-    inicializarEmpleado(nomina, TAM);
-    int respuesta;
-    char opcion;
     int flagCarga = 0;
+
+    //inicializo todo
+    inicializarEmpleado(nomina, TAM);
+    harcodear(nomina, TAM, 5, &nextLegajo);
+
 
     do {
 
@@ -41,38 +44,28 @@ int main()
 	            printf("BAJA de empleado\n");
 	            if(!flagCarga)
                 {
-                    printf("No hay empleados cargados\n");
+                    printf("No hay empleados cargados, no pueden realizarse bajas\n");
                     system("pause");
                 }
                 else
                 {
+	            devolucion = bajaEmpleado(nomina, TAM);
+	            if(devolucion == 1)
+                  {
+                    printf("BAJA de empleado exitosa\n");
+                    system("pause");
+                   }
+                else if(devolucion == 2)
+                   {
+                     printf("Baja cancelada por el usuario\n");
+                     system("pause");
+                   }
+                 else
+                 {
+                     printf("Error en la baja\n");
+                     system("pause");
+                 }
 
-                mostrarEmpleados(nomina, TAM);
-	            printf("\n\n");
-	            printf("Cual es el numero de legajo para dar de baja?\n");
-	            scanf("%d", &respuesta);
-	            printf("Esta seguro que desea dar de baja al empleado con legajo %d  s/n ?\n", respuesta);
-                fflush(stdin);
-                scanf("%c", &opcion);
-                if(opcion == 's')
-                {
-	               devolucion = bajaEmpleado(nomina, TAM, respuesta);
-	               if(devolucion)
-                        {
-                         printf("BAJA de empleado exitosa\n");
-                         system("pause");
-                        }
-                   else
-                       {
-                        printf("no pudo realizarse la baja\n");
-                        system("pause");
-                       }
-                }
-                else
-                {
-                    printf("no pudo realizarse la baja\n");
-                    system("pause");
-                }
                 }
 
 	            break;
@@ -81,18 +74,12 @@ int main()
 	            printf("Modificar empleado\n");
 	            if(!flagCarga)
                 {
-                    printf("No hay empleados cargados\n");
+                    printf("No hay empleados cargados, no pueden efectuarse modificaciones\n");
                     system("pause");
                 }
 	            else
                 {
-                    mostrarEmpleados(nomina, TAM);
-	                printf("\n\n");
-	                printf("Cual es el numero de legajo para modificar?\n");
-	                scanf("%d", &respuesta);
-	                //system("pause");
-	                printf("Usted esta modificando el numero de legajo %d\n", respuesta);
-	                devolucion = modificarEmpleado(nomina, TAM, respuesta);
+                    devolucion = modificarEmpleado(nomina, TAM);
 	                if(devolucion)
                     {
 	                    printf("La modificacion fue exitosa\n");
@@ -128,7 +115,7 @@ int main()
                 system("pause");
                 break;
 
-	            case 7:
+	            case 12:
 	            printf("seguro que quiere salir? s / n\n");
 	            fflush(stdin);
 	            scanf("%c", &salir);

@@ -26,6 +26,7 @@ typedef struct{
           int edad;
           char sexo;
           float sueldo;
+          int idSector;
           int isEmpty;
 
 } eEmpleado;
@@ -78,7 +79,7 @@ int altaEmpleado(eEmpleado lista[], int tamanio, int* plegajo);
  * \return Devuelve 1 si la baja fue exitosa y 0 si la baja no pudo realizarse
  *
  */
-int bajaEmpleado(eEmpleado lista[], int tamanio, int legajo);
+int bajaEmpleado(eEmpleado lista[], int tamanio);
 
 /** \brief Busca la primera posicion vacia en el array
  *
@@ -112,7 +113,7 @@ void cambiarFlag(int* bandera);
  *
  */
 
-int modificarEmpleado(eEmpleado lista[], int tamanio, int legajo);
+int modificarEmpleado(eEmpleado lista[], int tamanio);
 
 /** \brief Ordena la lista de empleados por diferentes criterios
  *
@@ -121,5 +122,7 @@ int modificarEmpleado(eEmpleado lista[], int tamanio, int legajo);
  *
  */
 void ordenarEmpleadosPorCriterios(eEmpleado lista[], int tamanio);
+
+int harcodear(eEmpleado lista[], int tamanio, int cantidadACargar, int* pLegajo);
 
 #endif // LIBRERIA_H_INCLUDED
