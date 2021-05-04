@@ -1,5 +1,6 @@
 #include "libreria.h"
 #include "datawarehouse.h"
+#include "sectores.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -49,6 +50,7 @@ void mostrarEmpleados(eEmpleado lista[], int tamanio){
         if(!lista[i].isEmpty)
         {
            mostrarEmpleado(lista[i]);
+           //cargar descripcion de sector
            flag = 0;
         }
 
@@ -268,9 +270,8 @@ int modificarEmpleado(eEmpleado lista[], int tamanio)
            printf("Re ingrese el nombre\n");
            fflush(stdin);
            gets(auxiliar.nombre);
-           printf("%s\n", auxiliar.nombre);
            strcpy(lista[cualSeModifica].nombre,auxiliar.nombre);
-            todoOk = 1;
+           todoOk = 1;
         break;
        case 2:
            printf("Re ingrese sexo f/m\n");
@@ -535,16 +536,17 @@ int harcodear(eEmpleado lista[], int tamanio, int cantidadACargar, int* pLegajo,
        return todoOk;
 }
 
-int mostrarSectores(eSector listadoSectores, int tamanio)
+int mostrarSectores(eSector listadoSectores[], int tamanio)
 {
     int todoOk = -1;
 
     if(sectores != NULL && tamanio > 0)
     {
         printf("------------ Sectores ------------------ \n");
+        printf("--Identificador      Descripcion-------- \n");
         for(int i= 0; i < tamanio; i++)
         {
-            mostrarSector(sectores[i]);
+            mostrarSector(listadoSectores[i]);
             todoOk = 0;
         }
     }
@@ -561,4 +563,8 @@ int mostrarSector(eSector unSector)
     return todoOk;
 }
 
+int cargarDescripcionSector(int id, eSector sectores[],int tam, char descripcion[])
+{
+    return 0;
+}
 

@@ -1,5 +1,6 @@
 #ifndef LIBRERIA_H_INCLUDED
 #define LIBRERIA_H_INCLUDED
+#include "sectores.h"
 
 /** \brief Muestra un menu de opciones, mientras el usuario no elija salir
  *
@@ -8,10 +9,6 @@
  */
 int menu(void);
 
-typedef struct{
-           int idSector;
-           char descripcion[20];
-}eSector;
 
 typedef struct{
         int dia;
@@ -125,8 +122,5 @@ void ordenarEmpleadosPorCriterios(eEmpleado lista[], int tamanio);
 
 int harcodear(eEmpleado lista[], int tamanio, int cantidadACargar, int* pLegajo, eSector sectores[]);
 
-int mostrarSectores(eSector listadoSectores, int tamanio);
-
-int mostrarSector(eSector unSector);
 
 #endif // LIBRERIA_H_INCLUDED

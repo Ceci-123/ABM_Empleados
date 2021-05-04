@@ -2,8 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include "libreria.h"
+#include "sectores.h"
 
-#define TAM 8
+#define TAM 10
 #define TAMSECTOR 5
 
 
@@ -110,9 +111,9 @@ int main()
                 break;
 
 	            case 6:
-                printf("Informes de empleados\n");
-                printf("Mostrar los empleados de un sector\n");
-                //mostrarSectores(sectores, TAMSECTOR);
+                printf("Informes de sector\n");
+                printf("Mostrar los sectores\n");
+                mostrarSectores(sectores, TAMSECTOR);
                 system("pause");
                 break;
 
