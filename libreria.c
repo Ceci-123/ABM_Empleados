@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#define TAMSECTOR 5
 
 int menu(){
     int opcion;
@@ -31,12 +32,14 @@ int menu(){
 }
 
 
-void mostrarEmpleado(eEmpleado unEmpleado)
+void mostrarEmpleado(eEmpleado unEmpleado, eSector listadoSectores[], int tamaniosectores)
 {
+    char auxiliarDescripcion[20];
 
-    printf("%10s %02d     %02d    %.2f    %c    %02d     %02d/%02d/%d"
+    cargarDescripcionSector(unEmpleado.idSector, listadoSectores, tamaniosectores, auxiliarDescripcion);
+    printf("%10s %02d     %02d    %.2f    %c    %s     %02d/%02d/%d"
            , unEmpleado.nombre, unEmpleado.legajo, unEmpleado.edad, unEmpleado.sueldo, unEmpleado.sexo
-           , unEmpleado.idSector, unEmpleado.fechaIngreso.dia, unEmpleado.fechaIngreso.mes,unEmpleado.fechaIngreso.anio);
+           , auxiliarDescripcion, unEmpleado.fechaIngreso.dia, unEmpleado.fechaIngreso.mes,unEmpleado.fechaIngreso.anio);
     printf("\n");
 }
 
@@ -49,8 +52,7 @@ void mostrarEmpleados(eEmpleado lista[], int tamanio){
     {
         if(!lista[i].isEmpty)
         {
-           mostrarEmpleado(lista[i]);
-           //cargar descripcion de sector
+           mostrarEmpleado(lista[i], sectores, 5);
            flag = 0;
         }
 
@@ -210,7 +212,7 @@ int bajaEmpleado(eEmpleado lista[], int tamanio)
     printf("Cual es el numero de legajo para dar de baja?\n");
 	scanf("%d", &respuesta);
 	indice = buscarEmpleado(respuesta, lista, tamanio);
-	mostrarEmpleado(lista[indice]);
+	mostrarEmpleado(lista[indice], sectores, TAMSECTOR);
 	printf("Esta seguro que desea dar de baja al empleado con legajo %d  s/n ?\n", respuesta);
     fflush(stdin);
     scanf("%c", &opcion);
@@ -255,7 +257,7 @@ int modificarEmpleado(eEmpleado lista[], int tamanio)
     if(lista != NULL && tamanio > 0 && respuesta >0)
     {
         cualSeModifica = buscarEmpleado(respuesta, lista, tamanio);
-        mostrarEmpleado(lista[cualSeModifica]);
+        mostrarEmpleado(lista[cualSeModifica], sectores, TAMSECTOR);
         system("pause");
         printf("Si desea corregir el nombre ingrese 1\n");
         printf("Si desea corregir el sexo ingrese 2\n");
@@ -527,7 +529,7 @@ int harcodear(eEmpleado lista[], int tamanio, int cantidadACargar, int* pLegajo,
             lista[i].sueldo = sueldos[i];
             lista[i].sexo = sexos[i];
             lista[i].fechaIngreso = fechas[i];
-            //lista[i].idSector = sectores[i];
+            lista[i].idSector = idSectores[i];
             lista[i].isEmpty = 0;
             todoOk ++;
 
@@ -565,6 +567,17 @@ int mostrarSector(eSector unSector)
 
 int cargarDescripcionSector(int id, eSector sectores[],int tam, char descripcion[])
 {
-    return 0;
+    int todoOk = -1;
+
+    for(int i= 0; i < tam; i++)
+    {
+        if(sectores[i].idSector == id)
+        {
+            strcpy(descripcion, sectores[i].descripcion);
+            todoOk = 0;
+        }
+
+    }
+    return todoOk;
 }
 

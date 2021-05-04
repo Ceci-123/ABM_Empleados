@@ -33,7 +33,7 @@ typedef struct{
  * \param el empleado que quiero mostrar
  *
  */
-void mostrarEmpleado(eEmpleado unEmpleado);
+void mostrarEmpleado(eEmpleado unEmpleado, eSector listadoSectores[], int tamaniosectores);
 
 /** \brief Muestra todo el array de empleados
  *

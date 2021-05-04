@@ -10,9 +10,9 @@ typedef struct
 
 int cargarDescripcionSector(int id, eSector sectores[],int tam, char descripcion[]);
 
-void mostrarSectores(eSector listadoSectores[],int tamanio);
+int mostrarSectores(eSector listadoSectores[],int tamanio);
 
-void mostrarSector(eSector unSector);
+int mostrarSector(eSector unSector);
 
 
 #endif // SECTORES_H_INCLUDED
