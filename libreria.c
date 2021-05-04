@@ -540,7 +540,7 @@ int mostrarSectores(eSector listadoSectores[], int tamanio)
 {
     int todoOk = -1;
 
-    if(sectores != NULL && tamanio > 0)
+    if(listadoSectores != NULL && tamanio > 0)
     {
         printf("------------ Sectores ------------------ \n");
         printf("--Identificador      Descripcion-------- \n");
