@@ -2,8 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include "libreria.h"
-//#include "datawarehouse.h"
+
 #define TAM 8
+#define TAMSECTOR 5
 
 
 int main()
@@ -14,10 +15,12 @@ int main()
     int devolucion;
     eEmpleado nomina[TAM];
     int flagCarga = 0;
+    eSector sectores[TAMSECTOR];
 
     //inicializo todo
     inicializarEmpleado(nomina, TAM);
-    harcodear(nomina, TAM, 5, &nextLegajo);
+    harcodear(nomina, TAM, 8, &nextLegajo, sectores);
+    flagCarga = 1; // porque hardcodeo
 
 
     do {
@@ -108,7 +111,8 @@ int main()
 
 	            case 6:
                 printf("Informes de empleados\n");
-                printf("Informes de empleados con submenus\n");
+                printf("Mostrar los empleados de un sector\n");
+                //mostrarSectores(sectores, TAMSECTOR);
                 system("pause");
                 break;
 

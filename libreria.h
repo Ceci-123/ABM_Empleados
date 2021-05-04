@@ -123,6 +123,10 @@ int modificarEmpleado(eEmpleado lista[], int tamanio);
  */
 void ordenarEmpleadosPorCriterios(eEmpleado lista[], int tamanio);
 
-int harcodear(eEmpleado lista[], int tamanio, int cantidadACargar, int* pLegajo);
+int harcodear(eEmpleado lista[], int tamanio, int cantidadACargar, int* pLegajo, eSector sectores[]);
+
+int mostrarSectores(eSector listadoSectores, int tamanio);
+
+int mostrarSector(eSector unSector);
 
 #endif // LIBRERIA_H_INCLUDED

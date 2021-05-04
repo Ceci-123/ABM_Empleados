@@ -13,20 +13,20 @@
 	<string.h>
 	"libreria.h"
 
-1620082208 source:c:\users\user\desktop\repo de abm empleados\abm_empleados\libreria.c
+1620091222 source:c:\users\user\desktop\repo de abm empleados\abm_empleados\libreria.c
 	"libreria.h"
 	"datawarehouse.h"
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1620079316 c:\users\user\desktop\repo de abm empleados\abm_empleados\libreria.h
+1620091806 c:\users\user\desktop\repo de abm empleados\abm_empleados\libreria.h
 
-1620082552 source:c:\users\user\desktop\repo de abm empleados\abm_empleados\main.c
+1620091697 source:c:\users\user\desktop\repo de abm empleados\abm_empleados\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"libreria.h"
 
-1620077251 c:\users\user\desktop\repo de abm empleados\abm_empleados\datawarehouse.h
+1620090753 c:\users\user\desktop\repo de abm empleados\abm_empleados\datawarehouse.h
 

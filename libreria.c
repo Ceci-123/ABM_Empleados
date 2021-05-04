@@ -318,9 +318,8 @@ int modificarEmpleado(eEmpleado lista[], int tamanio)
            {
             printf("Re ingrese edad\n");
             scanf("%d", &auxiliar.edad);
-            printf("%d", auxiliar.edad);
-            lista[cualSeModifica].edad = auxiliar.edad;
             }
+        lista[cualSeModifica].edad = auxiliar.edad;
         todoOk = 1;
         break;
         case 6:
@@ -512,7 +511,7 @@ void ordenarEmpleadosPorCriterios(eEmpleado lista[], int tamanio)
     }
 }
 
-int harcodear(eEmpleado lista[], int tamanio, int cantidadACargar, int* pLegajo)
+int harcodear(eEmpleado lista[], int tamanio, int cantidadACargar, int* pLegajo, eSector sectores[])
 {
     int todoOk = 0;
 
@@ -527,7 +526,7 @@ int harcodear(eEmpleado lista[], int tamanio, int cantidadACargar, int* pLegajo)
             lista[i].sueldo = sueldos[i];
             lista[i].sexo = sexos[i];
             lista[i].fechaIngreso = fechas[i];
-            lista[i].idSector = sectores[i];
+            //lista[i].idSector = sectores[i];
             lista[i].isEmpty = 0;
             todoOk ++;
 
@@ -536,5 +535,30 @@ int harcodear(eEmpleado lista[], int tamanio, int cantidadACargar, int* pLegajo)
        return todoOk;
 }
 
+int mostrarSectores(eSector listadoSectores, int tamanio)
+{
+    int todoOk = -1;
+
+    if(sectores != NULL && tamanio > 0)
+    {
+        printf("------------ Sectores ------------------ \n");
+        for(int i= 0; i < tamanio; i++)
+        {
+            mostrarSector(sectores[i]);
+            todoOk = 0;
+        }
+    }
+    return todoOk;
+}
+
+int mostrarSector(eSector unSector)
+{
+    int todoOk = -1;
+
+    printf("   %d      %10s ", unSector.idSector, unSector.descripcion);
+    todoOk = 0;
+
+    return todoOk;
+}
 
 
