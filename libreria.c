@@ -127,8 +127,12 @@ int altaEmpleado(eEmpleado lista[], int tamanio,int* legajo)
             scanf("%f", &auxiliar.sueldo);
         }
         printf("Ingrese sector al que pertenece\n");
-        scanf("%f", &auxiliar.idSector);
-        // validar que sea un sector real
+        scanf("%d", &auxiliar.idSector);
+        while(auxiliar.idSector < 500 || auxiliar.idSector > 504)
+        {
+            printf("Error, Ingrese sector al que pertenece\n");
+            scanf("%d", &auxiliar.idSector);
+        }
         printf("Ingrese sexo f/m\n");
         fflush(stdin);
         scanf("%c", &auxiliar.sexo);
@@ -314,6 +318,7 @@ int modificarEmpleado(eEmpleado lista[], int tamanio)
            {
             printf("Re ingrese edad\n");
             scanf("%d", &auxiliar.edad);
+            printf("%d", auxiliar.edad);
             lista[cualSeModifica].edad = auxiliar.edad;
             }
         todoOk = 1;
@@ -331,8 +336,8 @@ int modificarEmpleado(eEmpleado lista[], int tamanio)
         break;
         }
 
-    return todoOk;
 }
+           return todoOk;
 }
 
 void ordenarEmpleadosPorCriterios(eEmpleado lista[], int tamanio)
@@ -510,7 +515,6 @@ void ordenarEmpleadosPorCriterios(eEmpleado lista[], int tamanio)
 int harcodear(eEmpleado lista[], int tamanio, int cantidadACargar, int* pLegajo)
 {
     int todoOk = 0;
-    int cantidad = 0;
 
     if(lista != NULL && tamanio > 0 && cantidadACargar > 0 && pLegajo != NULL)
     {
@@ -523,15 +527,13 @@ int harcodear(eEmpleado lista[], int tamanio, int cantidadACargar, int* pLegajo)
             lista[i].sueldo = sueldos[i];
             lista[i].sexo = sexos[i];
             lista[i].fechaIngreso = fechas[i];
-            lista[i].idSector = 23;
+            lista[i].idSector = sectores[i];
             lista[i].isEmpty = 0;
-            cantidad ++;
+            todoOk ++;
 
         }
     }
-
-
-       return 0;
+       return todoOk;
 }
 
 
