@@ -19,12 +19,8 @@ int menu(){
     printf(" 3. Modificar un empleado\n");
     printf(" 4. Listar empleados \n");
     printf(" 5. Ordenar empleados\n");
-    printf(" 6. Listar sectores\n");
-    printf(" 7. \n");
-    printf(" 8. \n");
-    printf(" 9. \n");
-    printf(" 10. \n");
-    printf(" 11. Informes de empleados\n");
+    printf(" 6. Informes\n");
+
     printf(" 12. Ingrese para salir del menu \n");
     scanf("%d", &opcion);
     return opcion;
@@ -548,7 +544,7 @@ int mostrarSectores(eSector listadoSectores[], int tamanio)
         printf("--Identificador      Descripcion-------- \n");
         for(int i= 0; i < tamanio; i++)
         {
-            mostrarSector(listadoSectores[i]);
+            mostrarSector(sectores[i]);
             todoOk = 0;
         }
     }
@@ -559,7 +555,7 @@ int mostrarSector(eSector unSector)
 {
     int todoOk = -1;
 
-    printf("   %d      %10s ", unSector.idSector, unSector.descripcion);
+    printf("  %d      %10s \n", unSector.idSector, unSector.descripcion);
     todoOk = 0;
 
     return todoOk;
@@ -581,3 +577,22 @@ int cargarDescripcionSector(int id, eSector sectores[],int tam, char descripcion
     return todoOk;
 }
 
+
+
+//void totalSueldosSector(eEmpleado listadoEmpleados, int tamanioListadoEmpleados, eSector sectoresLista, int tamanioListadoSectores)
+//{
+//    float acumulador = 0;
+//    int idSector;
+//
+//    for(int j= 0; j < tamanioListadoEmpleados; j ++)
+//        {
+//            if(listadoEmpleados[j].idSector == idSector)
+//            {
+//                // lo muestro si isempty no esta
+//                acumulador = acumulador + listadoEmpleados[j].sueldo;
+//                flag = 1;
+//            }
+//        }
+//     printf("---------- total sueldos-----------");
+//     printf("%f");
+//}

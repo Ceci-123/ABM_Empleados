@@ -13,24 +13,37 @@
 	<string.h>
 	"libreria.h"
 
-1620091960 source:c:\users\user\desktop\repo de abm empleados\abm_empleados\libreria.c
+1620350300 source:c:\users\user\desktop\repo de abm empleados\abm_empleados\libreria.c
 	"libreria.h"
 	"datawarehouse.h"
+	"sectores.h"
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1620151589 c:\users\user\desktop\repo de abm empleados\abm_empleados\libreria.h
+1620350865 c:\users\user\desktop\repo de abm empleados\abm_empleados\libreria.h
 	"sectores.h"
 
-1620147399 source:c:\users\user\desktop\repo de abm empleados\abm_empleados\main.c
+1620350337 source:c:\users\user\desktop\repo de abm empleados\abm_empleados\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"libreria.h"
 	"sectores.h"
+	"informes.h"
 
-1620091754 c:\users\user\desktop\repo de abm empleados\abm_empleados\datawarehouse.h
+1620222031 c:\users\user\desktop\repo de abm empleados\abm_empleados\datawarehouse.h
+	"sectores.h"
 
-1620151038 c:\users\user\desktop\repo de abm empleados\abm_empleados\sectores.h
+1620352306 c:\users\user\desktop\repo de abm empleados\abm_empleados\sectores.h
+
+1620352274 c:\users\user\desktop\repo de abm empleados\abm_empleados\informes.h
+	"libreria.h"
+
+1620354703 source:c:\users\user\desktop\repo de abm empleados\abm_empleados\informes.c
+	"informes.h"
+	"libreria.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
 

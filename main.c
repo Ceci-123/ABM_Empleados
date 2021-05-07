@@ -3,6 +3,7 @@
 #include <string.h>
 #include "libreria.h"
 #include "sectores.h"
+#include "informes.h"
 
 #define TAM 10
 #define TAMSECTOR 5
@@ -17,6 +18,7 @@ int main()
     eEmpleado nomina[TAM];
     int flagCarga = 0;
     eSector sectores[TAMSECTOR];
+    int opcion;
 
     //inicializo todo
     inicializarEmpleado(nomina, TAM);
@@ -111,10 +113,34 @@ int main()
                 break;
 
 	            case 6:
-                printf("Informes de sector\n");
-                printf("Mostrar los sectores\n");
-                mostrarSectores(sectores, TAMSECTOR);
-                system("pause");
+                printf("Informes\n");
+                printf("Elija que informe desea solicitar\n");
+                printf("Si desea mostrar los sectores ingrese 1: \n");
+                printf("Si desea listar empleados separados por sector ingrese 2: \n");
+                printf("Si desea listar empleados de todos los sectores, ingrese 3: \n");
+                scanf("%d", &opcion);
+                       switch(opcion)
+                       {
+                        case 1:
+                        mostrarSectores(sectores, TAMSECTOR);
+                        system("pause");
+                        break;
+                        case 2:
+                        listarEmpleadosSector(nomina, TAM, sectores, TAMSECTOR);
+                        break;
+                        case 3:
+                        listarEmpleadosAllSector(nomina, TAM, sectores, TAMSECTOR);
+                        break;
+                        }
+
+                break;
+
+                case 9:
+                    printf("total de sueldos de un sector\n");
+                    printf("total a depositar\n");
+                    printf("sector con mayores sueldos\n");
+
+
                 break;
 
 	            case 12:

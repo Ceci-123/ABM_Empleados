@@ -1,3 +1,4 @@
+#include "sectores.h"
 #ifndef DATAWAREHOUSE_H_INCLUDED
 #define DATAWAREHOUSE_H_INCLUDED
 
