@@ -1,5 +1,5 @@
 #include "informes.h"
-#include "libreria.h"
+#include "empleado.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -96,7 +96,49 @@ int buscarSector(int idSector, eSector sectores[], int tamanioVector)
     return indice;
 }
 
-//void totalSueldosSector(eEmpleado listadoEmpleados, int tamanioListadoEmpleados, eSector sectoresLista, int tamanioListadoSectores);
-// void totalADepositar(eEmpleado listadoEmpleados, int tamanioListadoEmpleados, eSector sectoresLista, int tamanioListadoSectores);
+int totalSueldosSector(eEmpleado listadoEmpleados[], int tamanioListadoEmpleados, eSector sectoresLista[], int tamanioListadoSectores)
+{
+    int opcion;
+    float acumuladorDeSueldos = 0;
+
+    mostrarSectores(sectoresLista, tamanioListadoSectores);
+    printf("De que sector desea saber el total de sueldos? \n");
+    scanf("%d", &opcion);
+
+    for(int i= 0; i < tamanioListadoEmpleados; i++)
+    {
+        if(listadoEmpleados[i].idSector == opcion && listadoEmpleados[i].isEmpty == 0)
+        {
+            acumuladorDeSueldos = acumuladorDeSueldos + listadoEmpleados[i].sueldo;
+        }
+    }
+     printf("El total de los sueldos del sector %d es %6.2f\n",opcion, acumuladorDeSueldos);
+     system("pause");
+     return 0;
+}
+int totalADepositar(eEmpleado listadoEmpleados[], int tamanioListadoEmpleados, eSector sectoresLista[], int tamanioListadoSectores)
+{
+    float acumuladorDeSueldos = 0;
+    float acumuladorDelAcumulador = 0;
+
+    for(int i=0; i < tamanioListadoSectores; i++)
+    {
+        printf("------ sector %s ------------------\n", sectoresLista[i].descripcion);
+        printf("-----------------------------------\n");
+        for(int j=0; j < tamanioListadoEmpleados; j++)
+        {
+            if(listadoEmpleados[j].idSector == sectoresLista[i].idSector && listadoEmpleados[j].isEmpty == 0)
+            {
+                acumuladorDeSueldos = acumuladorDeSueldos + listadoEmpleados[i].sueldo;
+            }
+        }
+        printf("Total sueldos del sector %s  es $$ %f\n", sectoresLista[i].descripcion, acumuladorDeSueldos);
+        acumuladorDelAcumulador = acumuladorDelAcumulador + acumuladorDeSueldos;
+    }
+
+    printf("El total de los sueldos es %6.2f\n", acumuladorDelAcumulador);
+    system("pause");
+    return 0;
+}
 
 

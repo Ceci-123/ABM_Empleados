@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "libreria.h"
+#include "empleado.h"
 #include "sectores.h"
 #include "informes.h"
 
@@ -113,11 +113,13 @@ int main()
                 break;
 
 	            case 6:
-                printf("Informes\n");
-                printf("Elija que informe desea solicitar\n");
-                printf("Si desea mostrar los sectores ingrese 1: \n");
-                printf("Si desea listar empleados separados por sector ingrese 2: \n");
-                printf("Si desea listar empleados de todos los sectores, ingrese 3: \n");
+                printf("  --------Informes----------\n");
+                printf(" * Elija que informe desea solicitar\n");
+                printf(" * Si desea mostrar los sectores ingrese 1: \n");
+                printf(" * Si desea listar empleados separados por sector ingrese 2: \n");
+                printf(" * Si desea listar empleados de todos los sectores, ingrese 3: \n");
+                printf(" * Si desea los sueldos de cada sector, ingrese 4: \n");
+                printf(" * Total a depositar, ingrese 5: \n");
                 scanf("%d", &opcion);
                        switch(opcion)
                        {
@@ -130,6 +132,12 @@ int main()
                         break;
                         case 3:
                         listarEmpleadosAllSector(nomina, TAM, sectores, TAMSECTOR);
+                        break;
+                        case 4:
+                        totalSueldosSector(nomina, TAM, sectores, TAMSECTOR);
+                        break;
+                        case 5:
+                        totalADepositar(nomina, TAM, sectores, TAMSECTOR);
                         break;
                         }
 

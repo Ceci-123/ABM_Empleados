@@ -1,5 +1,3 @@
-
-
 #ifndef SECTORES_H_INCLUDED
 #define SECTORES_H_INCLUDED
 

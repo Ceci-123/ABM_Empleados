@@ -1,6 +1,7 @@
-#include "libreria.h"
+#include "empleado.h"
 #include "datawarehouse.h"
 #include "sectores.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -534,65 +535,4 @@ int harcodear(eEmpleado lista[], int tamanio, int cantidadACargar, int* pLegajo,
        return todoOk;
 }
 
-int mostrarSectores(eSector listadoSectores[], int tamanio)
-{
-    int todoOk = -1;
 
-    if(listadoSectores != NULL && tamanio > 0)
-    {
-        printf("------------ Sectores ------------------ \n");
-        printf("--Identificador      Descripcion-------- \n");
-        for(int i= 0; i < tamanio; i++)
-        {
-            mostrarSector(sectores[i]);
-            todoOk = 0;
-        }
-    }
-    return todoOk;
-}
-
-int mostrarSector(eSector unSector)
-{
-    int todoOk = -1;
-
-    printf("  %d      %10s \n", unSector.idSector, unSector.descripcion);
-    todoOk = 0;
-
-    return todoOk;
-}
-
-int cargarDescripcionSector(int id, eSector sectores[],int tam, char descripcion[])
-{
-    int todoOk = -1;
-
-    for(int i= 0; i < tam; i++)
-    {
-        if(sectores[i].idSector == id)
-        {
-            strcpy(descripcion, sectores[i].descripcion);
-            todoOk = 0;
-        }
-
-    }
-    return todoOk;
-}
-
-
-
-//void totalSueldosSector(eEmpleado listadoEmpleados, int tamanioListadoEmpleados, eSector sectoresLista, int tamanioListadoSectores)
-//{
-//    float acumulador = 0;
-//    int idSector;
-//
-//    for(int j= 0; j < tamanioListadoEmpleados; j ++)
-//        {
-//            if(listadoEmpleados[j].idSector == idSector)
-//            {
-//                // lo muestro si isempty no esta
-//                acumulador = acumulador + listadoEmpleados[j].sueldo;
-//                flag = 1;
-//            }
-//        }
-//     printf("---------- total sueldos-----------");
-//     printf("%f");
-//}
