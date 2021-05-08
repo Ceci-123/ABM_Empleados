@@ -20,8 +20,8 @@ int menu(){
     printf(" 3. Modificar un empleado\n");
     printf(" 4. Listar empleados \n");
     printf(" 5. Ordenar empleados\n");
-    printf(" 6. Informes\n");
-
+    printf(" 6. Informes de empleados\n");
+    printf(" 7. Informes de comida \n");
     printf(" 12. Ingrese para salir del menu \n");
     scanf("%d", &opcion);
     return opcion;

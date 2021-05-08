@@ -5,7 +5,7 @@
 #include "sectores.h"
 #include "informes.h"
 #include "comida.h"
-#include "almuerzo.h"
+//#include "almuerzo.h"
 
 #define TAM 10
 #define TAMSECTOR 5
@@ -37,6 +37,7 @@ int main()
     inicializarEmpleado(nomina, TAM);
     harcodear(nomina, TAM, 8, &nextLegajo, sectores);
     flagCarga = 1; // porque hardcodeo
+    inicializarAlmuerzo(almuerzos, TAMA, nextIdAlmuerzo);
 
 
     do {
@@ -160,14 +161,26 @@ int main()
 
                 break;
 
-                case 9:
-                    printf("total de sueldos de un sector\n");
-                    printf("total a depositar\n");
-                    printf("sector con mayores sueldos\n");
-
-
+                case 7:  // comidas
+                    printf("Mostrar comidas ingrese 1\n");
+                    printf("Mostrar almuerzos ingrese 2\n");
+                    printf("Alta de almuerzos ingrese 3\n");
+                    scanf("%d", &opcion);
+                    switch(opcion)
+                    {
+                    case 1:
+                        // mostrar comidas
+                        mostrarComidas(comidas, TAMC);
+                    break;
+                    case 2:
+                        // mostrar almuerzo
+                    break;
+                    case 3:
+                        // alta de almuerzo
+                        altaAlmuerzo(almuerzos, TAMA, comidas, TAMC, nomina, TAM, sectores, TAMSECTOR, nextIdAlmuerzo);
+                    break;
+                    }
                 break;
-
 	            case 12:
 	            printf("seguro que quiere salir? s / n\n");
 	            fflush(stdin);
