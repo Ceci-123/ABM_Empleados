@@ -4,22 +4,34 @@
 #include "empleado.h"
 #include "sectores.h"
 #include "informes.h"
-
+#include "comida.h"
+#include "almuerzo.h"
 
 #define TAM 10
 #define TAMSECTOR 5
-
+#define TAMC 5
+#define TAMA 30
 
 int main()
 {
     // variables
     char salir = 'n';
     int nextLegajo = 200;
+    int nextIdAlmuerzo = 50000;
     int devolucion;
-    eEmpleado nomina[TAM];
+    eEmpleado nomina[TAM];   //listado de empleados
     int flagCarga = 0;
     int opcion;
+    //listado de sectores
     eSector sectores[TAMSECTOR] = {{500, "Sistemas"},{501, "Legales"},{502, "RRHH"},{503, "Contable"},{504, "Ventas"}};
+    //listado de comidas
+    eComida comidas[TAMC] = {{1000, "Milanesa", 150},
+                            {1001, "Ensalada", 190},
+                            {1002, "Fideos", 140},
+                            {1003, "Pizza", 120},
+                            {1004, "Sopa", 110}};
+
+    eAlmuerzo almuerzos[TAMA];
 
     //inicializo todo
     inicializarEmpleado(nomina, TAM);

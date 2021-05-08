@@ -1,4 +1,5 @@
 #include "sectores.h"
+#include "fecha.h"
 
 #ifndef LIBRERIA_H_INCLUDED
 #define LIBRERIA_H_INCLUDED
@@ -10,12 +11,6 @@
  */
 int menu(void);
 
-
-typedef struct{
-        int dia;
-        int mes;
-        int anio;
-}eFecha;
 
 typedef struct{
           int legajo;

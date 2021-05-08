@@ -140,29 +140,42 @@ int totalADepositar(eEmpleado listadoEmpleados[], int tamanioListadoEmpleados, e
 int sectorMayorSueldo(eEmpleado listadoEmpleados[], int tamanioListadoEmpleados, eSector sectoresLista[], int tamanioListadoSectores)
 {
     float totales[tamanioListadoSectores];
-    float comparadorSueldos = 0;
-    float masAltoSueldos = 0;
-    int posicion;
+    float totalSueldo = 0;
+    float mayor = 0;
+    int flag= 0;
 
-     printf("-------Sector que mas gana---------");
-    for(int i= 0; i < tamanioListadoEmpleados; i++)
+     printf("-------Sector que mas gana---------\n");
+    for(int s= 0; s < tamanioListadoSectores; s++)
     {
-        if(listadoEmpleados[i].isEmpty == 0)
+        for(int e= 0; e < tamanioListadoEmpleados; e++)
         {
-            masAltoSueldos = masAltoSueldos + listadoEmpleados[i].sueldo;
-        }
-        // lo guardo en el array auxiliar
-        totales[i] = masAltoSueldos;
-    }
-     for(int i; i < tamanioListadoSectores; i++)
+            if(listadoEmpleados[e].isEmpty == 0 && listadoEmpleados[e].idSector == sectoresLista[s].idSector)
+            {
+                totalSueldo = totalSueldo + listadoEmpleados[e].sueldo;
+
+            }
+        } // fin del for de empleados
+      totales[s] = totalSueldo;
+
+    } // fin del for sectores
+     for(int i = 0; i < tamanioListadoSectores; i++) // recorro el array de totales
      {
-         if(totales[i] > comparadorSueldos)
+         if(mayor > totales[i] || flag == 0)
          {
-             comparadorSueldos = totales[i];
-             posicion = i;// es el mayor;
+             flag = 1;
+             mayor = totales[i];
          }
      }
-     printf(" el sector de sueldos mas altos es %s\n", sectoresLista[posicion].descripcion);
+
+     for(int i = 0; i < tamanioListadoSectores; i++) // recorro de nuevo por si hay empate
+     {
+         if(mayor == totales[i])
+         {
+             printf("%s", sectoresLista[i].descripcion);
+
+         }
+     }
+     printf(" es el sector de sueldos mas altos\n");
      system("pause");
     return 0;
 }
