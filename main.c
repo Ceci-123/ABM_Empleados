@@ -177,7 +177,7 @@ int main()
                     break;
                     case 3:
                         // alta de almuerzo
-                        altaAlmuerzo(almuerzos, TAMA, comidas, TAMC, nomina, TAM, sectores, TAMSECTOR, nextIdAlmuerzo);
+                        altaAlmuerzo(almuerzos, TAMA, comidas, TAMC, nomina, TAM, sectores, TAMSECTOR, &nextIdAlmuerzo);
                     break;
                     }
                 break;

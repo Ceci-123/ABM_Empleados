@@ -45,7 +45,7 @@ int inicializarAlmuerzo(eAlmuerzo listadoDeAlmuerzos[], int tamanioListadoAlmuer
 
 }
 
-int altaAlmuerzo(eAlmuerzo listadoDeAlmuerzos[], int tamanioListadoAlmuerzos, eComida listadoDeComidas[], int tamanioListadoComidas, eEmpleado listadoEmpleados[], int tamanioListadoEmpleados, eSector sectoresLista[], int tamanioListadoSectores, int idAlmuerzo)
+int altaAlmuerzo(eAlmuerzo listadoDeAlmuerzos[], int tamanioListadoAlmuerzos, eComida listadoDeComidas[], int tamanioListadoComidas, eEmpleado listadoEmpleados[], int tamanioListadoEmpleados, eSector sectoresLista[], int tamanioListadoSectores, int* idAlmuerzo)
 {
     int todoOk = -1;
     int idComida;
@@ -69,9 +69,11 @@ int altaAlmuerzo(eAlmuerzo listadoDeAlmuerzos[], int tamanioListadoAlmuerzos, eC
         listadoDeAlmuerzos[almuerzoLibre].fecha.dia = fecha.dia;
         listadoDeAlmuerzos[almuerzoLibre].fecha.mes = fecha.mes;
         listadoDeAlmuerzos[almuerzoLibre].fecha.anio = fecha.anio;
-        listadoDeAlmuerzos[almuerzoLibre].id = idAlmuerzo;
-        idAlmuerzo ++;
-        printf("%d, %d %d/%d/ %d  %d", listadoDeAlmuerzos[almuerzoLibre].idComida, listadoDeAlmuerzos[almuerzoLibre].legEmpleado,
+        listadoDeAlmuerzos[almuerzoLibre].id = *idAlmuerzo;
+        (*idAlmuerzo) ++;
+        printf("Id de la comida: %d Empleado legajo:%d Fecha: %d/%d/%d  Id de almuerzo: %d",
+               listadoDeAlmuerzos[almuerzoLibre].idComida,
+               listadoDeAlmuerzos[almuerzoLibre].legEmpleado,
                listadoDeAlmuerzos[almuerzoLibre].fecha.dia, listadoDeAlmuerzos[almuerzoLibre].fecha.mes,
                listadoDeAlmuerzos[almuerzoLibre].fecha.anio, listadoDeAlmuerzos[almuerzoLibre].id);
         system("pause");
@@ -93,4 +95,27 @@ int buscarAlmuerzoLibre(eAlmuerzo listadoDeAlmuerzos[], int tamanioListadoAlmuer
         }
     }
     return vacio;
+}
+
+int mostrarAlmuerzos(eAlmuerzo listadoDeAlmuerzos[], int tamanioListadoAlmuerzos)
+{
+    int todoOk = -1;
+    printf("------Listado de Almuerzos--------------------");
+    printf(" id comida  legajo empleado   fecha   id almuerzo");
+    printf("----------------------------------------------------");
+    if(listadoDeAlmuerzos != NULL && tamanioListadoAlmuerzos > 0)
+    {
+        for(int i= 0; i < tamanioListadoAlmuerzos; i++)
+        {
+            if(listadoDeAlmuerzos[i].isEmpty == 0)
+            {
+                printf("%d  %d  %d/%d/%d", listadoDeAlmuerzos[i].idComida, listadoDeAlmuerzos[i].legEmpleado,
+                       listadoDeAlmuerzos.fecha.dia, listadoDeAlmuerzos[i].fecha.mes,
+                       listadoDeAlmuerzos.fecha.anio, listadoDeAlmuerzos[i].id);
+                todoOk = 0;
+            }
+
+        }
+    }
+    return todoOk;
 }
