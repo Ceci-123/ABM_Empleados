@@ -5,6 +5,7 @@
 #include "sectores.h"
 #include "informes.h"
 
+
 #define TAM 10
 #define TAMSECTOR 5
 
@@ -17,8 +18,8 @@ int main()
     int devolucion;
     eEmpleado nomina[TAM];
     int flagCarga = 0;
-    eSector sectores[TAMSECTOR];
     int opcion;
+    eSector sectores[TAMSECTOR] = {{500, "Sistemas"},{501, "Legales"},{502, "RRHH"},{503, "Contable"},{504, "Ventas"}};
 
     //inicializo todo
     inicializarEmpleado(nomina, TAM);
@@ -55,7 +56,7 @@ int main()
                 }
                 else
                 {
-	            devolucion = bajaEmpleado(nomina, TAM);
+	            devolucion = bajaEmpleado(nomina, TAM, sectores, TAMSECTOR);
 	            if(devolucion == 1)
                   {
                     printf("BAJA de empleado exitosa\n");
@@ -85,7 +86,7 @@ int main()
                 }
 	            else
                 {
-                    devolucion = modificarEmpleado(nomina, TAM);
+                    devolucion = modificarEmpleado(nomina, TAM, sectores, TAMSECTOR);
 	                if(devolucion)
                     {
 	                    printf("La modificacion fue exitosa\n");
@@ -104,12 +105,12 @@ int main()
 
 	            case 4:
                 printf("Lista de empleados\n");
-                mostrarEmpleados(nomina, TAM);
+                mostrarEmpleados(nomina, TAM, sectores, TAMSECTOR);
                 system("pause");
                 break;
 
 	            case 5:
-                ordenarEmpleadosPorCriterios(nomina, TAM);
+                ordenarEmpleadosPorCriterios(nomina, TAM, sectores, TAMSECTOR);
                 break;
 
 	            case 6:
@@ -120,6 +121,7 @@ int main()
                 printf(" * Si desea listar empleados de todos los sectores, ingrese 3: \n");
                 printf(" * Si desea los sueldos de cada sector, ingrese 4: \n");
                 printf(" * Total a depositar, ingrese 5: \n");
+                printf(" * Sector con sueldos mas altos, ingrese 6: \n");
                 scanf("%d", &opcion);
                        switch(opcion)
                        {
@@ -138,6 +140,9 @@ int main()
                         break;
                         case 5:
                         totalADepositar(nomina, TAM, sectores, TAMSECTOR);
+                        break;
+                        case 6:
+                        sectorMayorSueldo(nomina, TAM, sectores, TAMSECTOR);
                         break;
                         }
 

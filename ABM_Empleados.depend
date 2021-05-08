@@ -24,7 +24,7 @@
 1620350865 c:\users\user\desktop\repo de abm empleados\abm_empleados\libreria.h
 	"sectores.h"
 
-1620428724 source:c:\users\user\desktop\repo de abm empleados\abm_empleados\main.c
+1620438622 source:c:\users\user\desktop\repo de abm empleados\abm_empleados\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -32,22 +32,22 @@
 	"sectores.h"
 	"informes.h"
 
-1620222031 c:\users\user\desktop\repo de abm empleados\abm_empleados\datawarehouse.h
+1620437364 c:\users\user\desktop\repo de abm empleados\abm_empleados\datawarehouse.h
 	"sectores.h"
 
 1620425218 c:\users\user\desktop\repo de abm empleados\abm_empleados\sectores.h
 
-1620427239 c:\users\user\desktop\repo de abm empleados\abm_empleados\informes.h
+1620434000 c:\users\user\desktop\repo de abm empleados\abm_empleados\informes.h
 	"empleado.h"
 
-1620429503 source:c:\users\user\desktop\repo de abm empleados\abm_empleados\informes.c
+1620436164 source:c:\users\user\desktop\repo de abm empleados\abm_empleados\informes.c
 	"informes.h"
 	"empleado.h"
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1620430286 source:c:\users\user\desktop\repo de abm empleados\abm_empleados\empleado.c
+1620438727 source:c:\users\user\desktop\repo de abm empleados\abm_empleados\empleado.c
 	"empleado.h"
 	"datawarehouse.h"
 	"sectores.h"
@@ -55,6 +55,12 @@
 	<stdlib.h>
 	<string.h>
 
-1620350865 c:\users\user\desktop\repo de abm empleados\abm_empleados\empleado.h
+1620438496 c:\users\user\desktop\repo de abm empleados\abm_empleados\empleado.h
 	"sectores.h"
+
+1620430471 source:c:\users\user\desktop\repo de abm empleados\abm_empleados\sectores.c
+	"sectores.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
 

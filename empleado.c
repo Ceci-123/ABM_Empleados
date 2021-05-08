@@ -40,7 +40,7 @@ void mostrarEmpleado(eEmpleado unEmpleado, eSector listadoSectores[], int tamani
     printf("\n");
 }
 
-void mostrarEmpleados(eEmpleado lista[], int tamanio){
+void mostrarEmpleados(eEmpleado lista[], int tamanio, eSector listadoSectores[], int tamaniosectores){
 
     int flag = 1;
     printf("------------- NOMINA DE EMPLEADOS ------------------\n");
@@ -49,7 +49,7 @@ void mostrarEmpleados(eEmpleado lista[], int tamanio){
     {
         if(!lista[i].isEmpty)
         {
-           mostrarEmpleado(lista[i], sectores, 5);
+           mostrarEmpleado(lista[i], listadoSectores, tamaniosectores);
            flag = 0;
         }
 
@@ -197,19 +197,19 @@ int buscarEmpleado(int legajo, eEmpleado lista[], int tamanio)  // devuelve indi
      return indice;
 }
 
-int bajaEmpleado(eEmpleado lista[], int tamanio)
+int bajaEmpleado(eEmpleado lista[], int tamanio, eSector listadoSectores[], int tamanioListadoSectores)
 {
     int todoOk = 0;
     int respuesta;
     char opcion;
     int indice;
 
-    mostrarEmpleados(lista, tamanio);
+    mostrarEmpleados(lista, tamanio, listadoSectores, tamanioListadoSectores);
     printf("\n\n");
     printf("Cual es el numero de legajo para dar de baja?\n");
 	scanf("%d", &respuesta);
 	indice = buscarEmpleado(respuesta, lista, tamanio);
-	mostrarEmpleado(lista[indice], sectores, TAMSECTOR);
+	mostrarEmpleado(lista[indice], listadoSectores, TAMSECTOR);
 	printf("Esta seguro que desea dar de baja al empleado con legajo %d  s/n ?\n", respuesta);
     fflush(stdin);
     scanf("%c", &opcion);
@@ -237,7 +237,7 @@ void cambiarFlag(int* bandera){
 
 }
 
-int modificarEmpleado(eEmpleado lista[], int tamanio)
+int modificarEmpleado(eEmpleado lista[], int tamanio, eSector listadoSectores[], int tamanioListadoSectores)
 {
     int todoOk = 0;
     int cualSeModifica;
@@ -245,7 +245,7 @@ int modificarEmpleado(eEmpleado lista[], int tamanio)
     eEmpleado auxiliar;
     int respuesta;
 
-          mostrarEmpleados(lista, tamanio);
+          mostrarEmpleados(lista, tamanio, listadoSectores, tamanioListadoSectores );
 	      printf("\n\n");
 	      printf("Cual es el numero de legajo para modificar?\n");
 	      scanf("%d", &respuesta);
@@ -254,7 +254,7 @@ int modificarEmpleado(eEmpleado lista[], int tamanio)
     if(lista != NULL && tamanio > 0 && respuesta >0)
     {
         cualSeModifica = buscarEmpleado(respuesta, lista, tamanio);
-        mostrarEmpleado(lista[cualSeModifica], sectores, TAMSECTOR);
+        mostrarEmpleado(lista[cualSeModifica], listadoSectores, TAMSECTOR);
         system("pause");
         printf("Si desea corregir el nombre ingrese 1\n");
         printf("Si desea corregir el sexo ingrese 2\n");
@@ -339,7 +339,7 @@ int modificarEmpleado(eEmpleado lista[], int tamanio)
            return todoOk;
 }
 
-void ordenarEmpleadosPorCriterios(eEmpleado lista[], int tamanio)
+void ordenarEmpleadosPorCriterios(eEmpleado lista[], int tamanio, eSector listadoSectores[], int tamanioSectores)
 {
     int opcion;
     eEmpleado auxiliarEmpleado;
@@ -371,7 +371,7 @@ void ordenarEmpleadosPorCriterios(eEmpleado lista[], int tamanio)
         }  // segundo for
 
     }  // primer for
-    mostrarEmpleados(lista, tamanio);
+    mostrarEmpleados(lista, tamanio, listadoSectores, tamanioSectores);
     system("pause");
     break;
     case 2:
@@ -390,7 +390,7 @@ void ordenarEmpleadosPorCriterios(eEmpleado lista[], int tamanio)
         }  // segundo for
 
     }  // primer for
-    mostrarEmpleados(lista, tamanio);
+    mostrarEmpleados(lista, tamanio, listadoSectores, tamanioSectores);
     system("pause");
     break;
     case 3:
@@ -409,7 +409,7 @@ void ordenarEmpleadosPorCriterios(eEmpleado lista[], int tamanio)
         }  // segundo for
 
     }  // primer for
-    mostrarEmpleados(lista, tamanio);
+    mostrarEmpleados(lista, tamanio, listadoSectores, tamanioSectores);
     system("pause");
     break;
     case 4:
@@ -428,7 +428,7 @@ void ordenarEmpleadosPorCriterios(eEmpleado lista[], int tamanio)
         }  // segundo for
 
     }  // primer for
-    mostrarEmpleados(lista, tamanio);
+    mostrarEmpleados(lista, tamanio, listadoSectores, tamanioSectores);
     system("pause");
     break;
     case 5:
@@ -447,7 +447,7 @@ void ordenarEmpleadosPorCriterios(eEmpleado lista[], int tamanio)
         }  // segundo for
 
     }  // primer for
-    mostrarEmpleados(lista, tamanio);
+    mostrarEmpleados(lista, tamanio, listadoSectores, tamanioSectores);
     system("pause");
     break;
     case 6:
@@ -466,7 +466,7 @@ void ordenarEmpleadosPorCriterios(eEmpleado lista[], int tamanio)
         }  // segundo for
 
     }  // primer for
-    mostrarEmpleados(lista, tamanio);
+    mostrarEmpleados(lista, tamanio, listadoSectores, tamanioSectores);
     system("pause");
     break;
     case 7:
@@ -485,7 +485,7 @@ void ordenarEmpleadosPorCriterios(eEmpleado lista[], int tamanio)
         }  // segundo for
 
     }  // primer for
-    mostrarEmpleados(lista, tamanio);
+    mostrarEmpleados(lista, tamanio, listadoSectores, tamanioSectores);
     system("pause");
     break;
     case 8:
@@ -504,7 +504,7 @@ void ordenarEmpleadosPorCriterios(eEmpleado lista[], int tamanio)
         }  // segundo for
 
     }  // primer for
-    mostrarEmpleados(lista, tamanio);
+    mostrarEmpleados(lista, tamanio, listadoSectores, tamanioSectores);
     system("pause");
     break;
 

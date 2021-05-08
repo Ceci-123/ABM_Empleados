@@ -42,7 +42,7 @@ void mostrarEmpleado(eEmpleado unEmpleado, eSector listadoSectores[], int tamani
  * \param El tamaño del array
  *
  */
-void mostrarEmpleados(eEmpleado lista[], int tamanio);
+void mostrarEmpleados(eEmpleado lista[], int tamanio, eSector listadoSectores[], int tamaniosectores);
 
 /** \brief
  *
@@ -77,7 +77,8 @@ int altaEmpleado(eEmpleado lista[], int tamanio, int* plegajo);
  * \return Devuelve 1 si la baja fue exitosa y 0 si la baja no pudo realizarse
  *
  */
-int bajaEmpleado(eEmpleado lista[], int tamanio);
+int bajaEmpleado(eEmpleado lista[], int tamanio, eSector listadoSectores[], int tamanioListadoSectores);
+
 
 /** \brief Busca la primera posicion vacia en el array
  *
@@ -111,7 +112,7 @@ void cambiarFlag(int* bandera);
  *
  */
 
-int modificarEmpleado(eEmpleado lista[], int tamanio);
+int modificarEmpleado(eEmpleado lista[], int tamanio, eSector sectores[], int tamanioListadoSectores);
 
 /** \brief Ordena la lista de empleados por diferentes criterios
  *
@@ -119,7 +120,7 @@ int modificarEmpleado(eEmpleado lista[], int tamanio);
  * \param El tamaño de la lista
  *
  */
-void ordenarEmpleadosPorCriterios(eEmpleado lista[], int tamanio);
+void ordenarEmpleadosPorCriterios(eEmpleado lista[], int tamanio, eSector listadoSectores[], int tamanioSectores);
 
 int harcodear(eEmpleado lista[], int tamanio, int cantidadACargar, int* pLegajo, eSector sectores[]);
 

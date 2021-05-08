@@ -8,7 +8,6 @@ void listarEmpleadosSector(eEmpleado listadoEmpleados[], int tamanioListadoEmple
 {
     //int opcion;
     char descripcion[20];
-    int devolucion;
     int idSector;
     int indice;
     int flag = 0;
@@ -19,16 +18,14 @@ void listarEmpleadosSector(eEmpleado listadoEmpleados[], int tamanioListadoEmple
     scanf("%d", &idSector);
     printf("su opcion es %d ", idSector);
     indice = buscarSector(idSector, sectoresLista, tamanioListadoSectores);
-//    while(indice == -1 )
-//    {
-//       printf("Sector no valido, reingrese de que sector desea saber los empleados?: ");
-//       scanf("%d", &idSector);
-//       indice = buscarSector(idSector, sectoresLista, tamanioListadoSectores);
-//    }
-    devolucion = cargarDescripcionSector(idSector, sectoresLista, tamanioListadoSectores, descripcion);
+    while(indice == -1 )
+    {
+       printf("Sector no valido, reingrese de que sector desea saber los empleados?: ");
+       scanf("%d", &idSector);
+       indice = buscarSector(idSector, sectoresLista, tamanioListadoSectores);
+    }
+    cargarDescripcionSector(idSector, sectoresLista, tamanioListadoSectores, descripcion);
     printf("\nEl sector elegido es: %s\n\n",descripcion);
-    printf("lo que me devuelve la funcion es %d", devolucion);
-    system("pause");
     printf("------------- NOMINA DE EMPLEADOS sector %s------------------\n", sectoresLista[indice].descripcion);
     printf("nombre    legajo   edad   sueldo   sexo  numero de sector  fecha de ingreso\n");
     for(int i= 0; i < tamanioListadoEmpleados; i++)
@@ -37,12 +34,11 @@ void listarEmpleadosSector(eEmpleado listadoEmpleados[], int tamanioListadoEmple
         {
 
             mostrarEmpleado(listadoEmpleados[i], sectoresLista, tamanioListadoSectores);
-            system("pause");
             flag = 1;
         }
 
     }
-
+    system("pause");
     if(flag == 0)
     {
         printf("No hay empleados en el sector %s", sectoresLista[indice].descripcion);
@@ -138,6 +134,36 @@ int totalADepositar(eEmpleado listadoEmpleados[], int tamanioListadoEmpleados, e
 
     printf("El total de los sueldos es %6.2f\n", acumuladorDelAcumulador);
     system("pause");
+    return 0;
+}
+
+int sectorMayorSueldo(eEmpleado listadoEmpleados[], int tamanioListadoEmpleados, eSector sectoresLista[], int tamanioListadoSectores)
+{
+    float totales[tamanioListadoSectores];
+    float comparadorSueldos = 0;
+    float masAltoSueldos = 0;
+    int posicion;
+
+     printf("-------Sector que mas gana---------");
+    for(int i= 0; i < tamanioListadoEmpleados; i++)
+    {
+        if(listadoEmpleados[i].isEmpty == 0)
+        {
+            masAltoSueldos = masAltoSueldos + listadoEmpleados[i].sueldo;
+        }
+        // lo guardo en el array auxiliar
+        totales[i] = masAltoSueldos;
+    }
+     for(int i; i < tamanioListadoSectores; i++)
+     {
+         if(totales[i] > comparadorSueldos)
+         {
+             comparadorSueldos = totales[i];
+             posicion = i;// es el mayor;
+         }
+     }
+     printf(" el sector de sueldos mas altos es %s\n", sectoresLista[posicion].descripcion);
+     system("pause");
     return 0;
 }
 
