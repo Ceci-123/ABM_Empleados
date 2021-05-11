@@ -26,96 +26,39 @@ int mostrarComida(eComida unaComida)
     return 0;
 }
 
-int inicializarAlmuerzo(eAlmuerzo listadoDeAlmuerzos[], int tamanioListadoAlmuerzos, int idAlmuerzo)
+int validarIdComida(eComida listadoComidas[], int tamanioListadoComidas, int idABuscar)
 {
-    int todoOk = -1;
-    if(listadoDeAlmuerzos != NULL && tamanioListadoAlmuerzos > 0)
+    int todoOk = 0;
+
+    if(listadoComidas != NULL && tamanioListadoComidas > 0)
     {
-        for(int i= 0; i < tamanioListadoAlmuerzos; i++)
+        for(int i= 0; i < tamanioListadoComidas; i ++)
         {
-        listadoDeAlmuerzos[i].isEmpty = 1;
-        listadoDeAlmuerzos[i].id = idAlmuerzo;
-        idAlmuerzo ++;
-
-        }
-        todoOk = 0;
-    }
-
-    return todoOk;
-
-}
-
-int altaAlmuerzo(eAlmuerzo listadoDeAlmuerzos[], int tamanioListadoAlmuerzos, eComida listadoDeComidas[], int tamanioListadoComidas, eEmpleado listadoEmpleados[], int tamanioListadoEmpleados, eSector sectoresLista[], int tamanioListadoSectores, int* idAlmuerzo)
-{
-    int todoOk = -1;
-    int idComida;
-    int legajo;
-    eFecha fecha;
-    int almuerzoLibre;
-
-    if(listadoDeAlmuerzos != NULL && tamanioListadoAlmuerzos > 0)
-    {
-        mostrarComidas(listadoDeComidas, tamanioListadoComidas);
-        printf("Ingrese el id de la comida deseada: ");
-        scanf("%d", &idComida);
-        mostrarEmpleados(listadoEmpleados, tamanioListadoEmpleados, sectoresLista, tamanioListadoSectores);
-        printf("Ingrese el legajo del empleado: ");
-        scanf("%d", &legajo);
-        printf("Ingrese fecha con formato dd/mm/aaaa\n");
-        scanf("%d/%d/%d", &fecha.dia, &fecha.mes, &fecha.anio);
-        almuerzoLibre = buscarAlmuerzoLibre(listadoDeAlmuerzos, tamanioListadoAlmuerzos);
-        listadoDeAlmuerzos[almuerzoLibre].idComida = idComida;
-        listadoDeAlmuerzos[almuerzoLibre].legEmpleado = legajo;
-        listadoDeAlmuerzos[almuerzoLibre].fecha.dia = fecha.dia;
-        listadoDeAlmuerzos[almuerzoLibre].fecha.mes = fecha.mes;
-        listadoDeAlmuerzos[almuerzoLibre].fecha.anio = fecha.anio;
-        listadoDeAlmuerzos[almuerzoLibre].id = *idAlmuerzo;
-        (*idAlmuerzo) ++;
-        printf("Id de la comida: %d Empleado legajo:%d Fecha: %d/%d/%d  Id de almuerzo: %d",
-               listadoDeAlmuerzos[almuerzoLibre].idComida,
-               listadoDeAlmuerzos[almuerzoLibre].legEmpleado,
-               listadoDeAlmuerzos[almuerzoLibre].fecha.dia, listadoDeAlmuerzos[almuerzoLibre].fecha.mes,
-               listadoDeAlmuerzos[almuerzoLibre].fecha.anio, listadoDeAlmuerzos[almuerzoLibre].id);
-        system("pause");
-    }
-
-    return todoOk;
-}
-
-int buscarAlmuerzoLibre(eAlmuerzo listadoDeAlmuerzos[], int tamanioListadoAlmuerzos)
-{
-    int vacio;
-
-    for(int i= 0; i < tamanioListadoAlmuerzos; i++)
-    {
-        if(listadoDeAlmuerzos[i].isEmpty == 1)
-        {
-            vacio = i;
-            break;
-        }
-    }
-    return vacio;
-}
-
-int mostrarAlmuerzos(eAlmuerzo listadoDeAlmuerzos[], int tamanioListadoAlmuerzos)
-{
-    int todoOk = -1;
-    printf("------Listado de Almuerzos--------------------");
-    printf(" id comida  legajo empleado   fecha   id almuerzo");
-    printf("----------------------------------------------------");
-    if(listadoDeAlmuerzos != NULL && tamanioListadoAlmuerzos > 0)
-    {
-        for(int i= 0; i < tamanioListadoAlmuerzos; i++)
-        {
-            if(listadoDeAlmuerzos[i].isEmpty == 0)
+            if(listadoComidas[i].id == idABuscar)
             {
-                printf("%d  %d  %d/%d/%d", listadoDeAlmuerzos[i].idComida, listadoDeAlmuerzos[i].legEmpleado,
-                       listadoDeAlmuerzos.fecha.dia, listadoDeAlmuerzos[i].fecha.mes,
-                       listadoDeAlmuerzos.fecha.anio, listadoDeAlmuerzos[i].id);
-                todoOk = 0;
+                todoOk = 1;
+                break;
             }
-
         }
     }
+   return todoOk;
+}
+
+int cargarDescripcionComida(int idComida, eComida listadoComidas[], int tamanioListadoComidas, char descripcion[])
+{
+    int todoOk = 0;
+    if(idComida > 0 && listadoComidas != NULL && tamanioListadoComidas > 0 && descripcion != NULL)
+    {
+        for(int i= 0; i < tamanioListadoComidas; i++)
+        {
+            if(listadoComidas[i].id == idComida)
+            {
+                strcpy(descripcion, listadoComidas[i].descripcion);
+                todoOk = 1;
+                break;
+            }
+        }
+    }
+
     return todoOk;
 }

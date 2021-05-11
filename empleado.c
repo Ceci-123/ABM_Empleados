@@ -535,4 +535,22 @@ int harcodear(eEmpleado lista[], int tamanio, int cantidadACargar, int* pLegajo,
        return todoOk;
 }
 
+int cargarNombreEmpleado(int legajo, eEmpleado listadoEmpleados[], int tamanioListadoEmpleados, char nombre[])
+{
+    int todoOk= 0;
 
+    if(legajo > 0 && listadoEmpleados != NULL && tamanioListadoEmpleados > 0 && nombre != NULL)
+    {
+        for(int i= 0; i < tamanioListadoEmpleados; i++)
+        {
+            if(listadoEmpleados[i].legajo == legajo)
+            {
+                // encontre
+                strcpy(nombre, listadoEmpleados[i].nombre);
+                todoOk = 1;
+                break;
+            }
+        }
+    }
+    return todoOk;
+}

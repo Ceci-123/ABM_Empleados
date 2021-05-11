@@ -55,19 +55,18 @@ int listarEmpleadosAllSector(eEmpleado listadoEmpleados[], int tamanioListadoEmp
     {
         flag = 1;
         printf("Sector : %s \n", sectoresLista[i].descripcion);
-        system("pause");
+
 
         // recorre el array de empleados
         for(int j= 0; j < tamanioListadoEmpleados; j ++)
         {
-            if(listadoEmpleados[j].idSector == sectoresLista[i].idSector && listadoEmpleados[j].isEmpty == 1)
+            if(listadoEmpleados[j].idSector == sectoresLista[i].idSector && listadoEmpleados[j].isEmpty == 0)
             {
                 mostrarEmpleado(listadoEmpleados[j], sectoresLista, tamanioListadoSectores);
                 flag = 0;
             }
         }
-                printf("---------------------------------------");
-                system("pause");
+                printf("-----------------------------------------------------------\n");
     }
     if(flag == 1)
     {
@@ -75,6 +74,7 @@ int listarEmpleadosAllSector(eEmpleado listadoEmpleados[], int tamanioListadoEmp
         printf("no hay empleados en este sector\n ");
         system("pause");
     }
+    system("pause");
     return 0;
 }
 
@@ -179,5 +179,4 @@ int sectorMayorSueldo(eEmpleado listadoEmpleados[], int tamanioListadoEmpleados,
      system("pause");
     return 0;
 }
-
 

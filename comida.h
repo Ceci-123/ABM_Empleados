@@ -21,5 +21,17 @@ int altaAlmuerzo(eAlmuerzo listadoDeAlmuerzos[], int tamanioListadoAlmuerzos, eC
 
 int buscarAlmuerzoLibre(eAlmuerzo listadoDeAlmuerzos[], int tamanioListadoAlmuerzos);
 
-int mostrarAlmuerzos(eAlmuerzo listadoDeAlmuerzos[], int tamanioListadoAlmuerzos);
+int mostrarAlmuerzos(eAlmuerzo listadoDeAlmuerzos[], int tamanioListadoAlmuerzos, eEmpleado listadoEmpleados[], int tamanioListaEmpleados, eComida listadoComidas[], int tamanioListadoComidas);
+
+int mostrarAlmuerzo(eAlmuerzo unAlmuerzo, eEmpleado listadoEmpleados[], int tamanioListaEmpleados, eComida listadoComidas[], int tamanioListadoComidas);
+
+int validarIdComida(eComida listadoComidas[], int tamanioListadoComidas, int idABuscar);
+
+int cargarDescripcionComida(int idComida, eComida listadoComidas[], int tamanioListadoComidas, char descripcion[]);
+
+int mostrarAlmuerzoUnEmpleado(eAlmuerzo listadoDeAlmuerzos[], int tamanioListadoAlmuerzos, eEmpleado listadoEmpleados[], int tamanioListaEmpleados, eComida listadoComidas[], int tamanioListadoComidas, eSector sectoresLista[], int tamanioListadoSectores);
+
+//int harcodearAlmuerzo(eAlmuerzo lista[], int tamanio, int cantidadACargar, int* pNextId);
+
+void totalAlmuerzosUnEmpleado(eEmpleado listadoEmpleados[], int tamanioListadoEmpleados, eSector sectoresLista[], int tamanioListadoSectores, eAlmuerzo listadoAlmuerzos[], int tamanioListadoAlmuerzos, eComida listadoComidas[], int tamanioListadoComidas);
 #endif // COMIDA_H_INCLUDED

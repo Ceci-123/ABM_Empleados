@@ -1,4 +1,6 @@
 #include "empleado.h"
+#include "almuerzo.h"
+#include "comida.h"
 
 #ifndef INFORMES_H_INCLUDED
 #define INFORMES_H_INCLUDED
@@ -15,6 +17,10 @@ int totalSueldosSector(eEmpleado listadoEmpleados[], int tamanioListadoEmpleados
 int totalADepositar(eEmpleado listadoEmpleados[], int tamanioListadoEmpleados, eSector sectoresLista[], int tamanioListadoSectores);
 
 int sectorMayorSueldo(eEmpleado listadoEmpleados[], int tamanioListadoEmpleados, eSector sectoresLista[], int tamanioListadoSectores);
+
+void almuerzosEmpleado(eEmpleado listadoEmpleados[], int tamanioListadoEmpleados, eSector sectoresLista[], int tamanioListadoSectores, eAlmuerzo listadoAlmuerzos[], int tamanioListadoAlmuerzos, eComida listadoComidas[], int tamanioListadoComidas);
+
+void totalAlmuerzoEmpleado(eEmpleado listadoEmpleados[], int tamanioListadoEmpleados, eSector sectoresLista[], int tamanioListadoSectores, eAlmuerzo listadoAlmuerzos[], int tamanioListadoAlmuerzos, eComida listadoComidas[], int tamanioListadoComidas);
 
 #endif // INFORMES_H_INCLUDED
 

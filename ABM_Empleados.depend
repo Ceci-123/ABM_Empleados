@@ -24,7 +24,7 @@
 1620350865 c:\users\user\desktop\repo de abm empleados\abm_empleados\libreria.h
 	"sectores.h"
 
-1620491138 source:c:\users\user\desktop\repo de abm empleados\abm_empleados\main.c
+1620701491 source:c:\users\user\desktop\repo de abm empleados\abm_empleados\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -33,22 +33,24 @@
 	"informes.h"
 	"comida.h"
 
-1620437364 c:\users\user\desktop\repo de abm empleados\abm_empleados\datawarehouse.h
+1620700941 c:\users\user\desktop\repo de abm empleados\abm_empleados\datawarehouse.h
 	"sectores.h"
 
 1620425218 c:\users\user\desktop\repo de abm empleados\abm_empleados\sectores.h
 
-1620434000 c:\users\user\desktop\repo de abm empleados\abm_empleados\informes.h
+1620672763 c:\users\user\desktop\repo de abm empleados\abm_empleados\informes.h
 	"empleado.h"
+	"almuerzo.h"
+	"comida.h"
 
-1620478517 source:c:\users\user\desktop\repo de abm empleados\abm_empleados\informes.c
+1620673631 source:c:\users\user\desktop\repo de abm empleados\abm_empleados\informes.c
 	"informes.h"
 	"empleado.h"
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1620485618 source:c:\users\user\desktop\repo de abm empleados\abm_empleados\empleado.c
+1620701130 source:c:\users\user\desktop\repo de abm empleados\abm_empleados\empleado.c
 	"empleado.h"
 	"datawarehouse.h"
 	"sectores.h"
@@ -56,7 +58,7 @@
 	<stdlib.h>
 	<string.h>
 
-1620476384 c:\users\user\desktop\repo de abm empleados\abm_empleados\empleado.h
+1620678170 c:\users\user\desktop\repo de abm empleados\abm_empleados\empleado.h
 	"sectores.h"
 	"fecha.h"
 
@@ -68,19 +70,25 @@
 
 1620476268 c:\users\user\desktop\repo de abm empleados\abm_empleados\fecha.h
 
-1620488361 source:c:\users\user\desktop\repo de abm empleados\abm_empleados\almuerzo.c
+1620701635 source:c:\users\user\desktop\repo de abm empleados\abm_empleados\almuerzo.c
+	"almuerzo.h"
+	"comida.h"
+	"empleado.h"
+	"sectores.h"
+	<stdio.h>
+	<stdlib.h>
 
-1620491465 source:c:\users\user\desktop\repo de abm empleados\abm_empleados\comida.c
+1620677648 source:c:\users\user\desktop\repo de abm empleados\abm_empleados\comida.c
 	"comida.h"
 	"almuerzo.h"
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1620491462 c:\users\user\desktop\repo de abm empleados\abm_empleados\comida.h
+1620705130 c:\users\user\desktop\repo de abm empleados\abm_empleados\comida.h
 	"almuerzo.h"
 	"empleado.h"
 
-1620488354 c:\users\user\desktop\repo de abm empleados\abm_empleados\almuerzo.h
+1620700867 c:\users\user\desktop\repo de abm empleados\abm_empleados\almuerzo.h
 	"fecha.h"
 

@@ -5,12 +5,11 @@
 #include "sectores.h"
 #include "informes.h"
 #include "comida.h"
-//#include "almuerzo.h"
 
 #define TAM 10
 #define TAMSECTOR 5
 #define TAMC 5
-#define TAMA 30
+#define TAMA 50
 
 int main()
 {
@@ -31,14 +30,14 @@ int main()
                             {1003, "Pizza", 120},
                             {1004, "Sopa", 110}};
 
-    eAlmuerzo almuerzos[TAMA];
+    eAlmuerzo almuerzos[TAMA]; //listado de almuerzos
 
     //inicializo todo
     inicializarEmpleado(nomina, TAM);
     harcodear(nomina, TAM, 8, &nextLegajo, sectores);
     flagCarga = 1; // porque hardcodeo
     inicializarAlmuerzo(almuerzos, TAMA, nextIdAlmuerzo);
-
+    //harcodearAlmuerzo(almuerzos, TAMA, 23, &nextIdAlmuerzo);
 
     do {
 
@@ -165,19 +164,30 @@ int main()
                     printf("Mostrar comidas ingrese 1\n");
                     printf("Mostrar almuerzos ingrese 2\n");
                     printf("Alta de almuerzos ingrese 3\n");
+                    printf("Mostrar almuerzo de un empleado ingrese 4\n");
+                    printf("Total de $$ almuerzo de un empleado ingrese 5\n");
+                    printf("Total de $$ almuerzo de los sectores ingrese 6\n");
                     scanf("%d", &opcion);
                     switch(opcion)
                     {
                     case 1:
-                        // mostrar comidas
                         mostrarComidas(comidas, TAMC);
                     break;
                     case 2:
-                        // mostrar almuerzo
+                        mostrarAlmuerzos(almuerzos, TAMA, nomina, TAM, comidas, TAMC);
                     break;
                     case 3:
-                        // alta de almuerzo
                         altaAlmuerzo(almuerzos, TAMA, comidas, TAMC, nomina, TAM, sectores, TAMSECTOR, &nextIdAlmuerzo);
+                    break;
+                    case 4:
+                        mostrarAlmuerzoUnEmpleado(almuerzos, TAMA, nomina, TAM, comidas, TAMC, sectores, TAMC);
+                    break;
+                    case 5:
+                        // mostrar total a pagar almuerzo de un empleado
+                        totalAlmuerzosUnEmpleado(nomina, TAM, sectores, TAMC, almuerzos, TAMA, comidas, TAMC);
+                    break;
+                    case 6:
+                        // mostrar total a pagar almuerzo de todos los sectores
                     break;
                     }
                 break;

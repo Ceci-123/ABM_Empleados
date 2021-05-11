@@ -119,7 +119,7 @@ void ordenarEmpleadosPorCriterios(eEmpleado lista[], int tamanio, eSector listad
 
 int harcodear(eEmpleado lista[], int tamanio, int cantidadACargar, int* pLegajo, eSector sectores[]);
 
-
+int cargarNombreEmpleado(int legajo, eEmpleado listadoEmpleados[], int tamanioListadoEmpleados, char nombre[]);
 
 
 #endif // LIBRERIA_H_INCLUDED
