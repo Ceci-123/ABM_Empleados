@@ -115,6 +115,8 @@ int buscarAlmuerzoLibre(eAlmuerzo listadoDeAlmuerzos[], int tamanioListadoAlmuer
 int mostrarAlmuerzos(eAlmuerzo listadoDeAlmuerzos[], int tamanioListadoAlmuerzos, eEmpleado listadoEmpleados[], int tamanioListaEmpleados, eComida listadoComidas[], int tamanioListadoComidas)
 {
     int todoOk = -1;
+    int flag = 0;
+
     printf("-------------------------Listado de Almuerzos------------------------\n");
     printf(" id comida nombre Comida legajo Nombre empleado   fecha   id almuerzo\n");
     printf("---------------------------------------------------------------------\n");
@@ -125,12 +127,18 @@ int mostrarAlmuerzos(eAlmuerzo listadoDeAlmuerzos[], int tamanioListadoAlmuerzos
           if(listadoDeAlmuerzos[i].isEmpty == 0)
             {
               mostrarAlmuerzo(listadoDeAlmuerzos[i], listadoEmpleados, tamanioListaEmpleados, listadoComidas, tamanioListadoComidas);
-
-                todoOk = 0;
+              flag = 1;
+              todoOk = 0;
             }
        }
-      system("pause");
+
    }
+   if(flag == 0)
+   {
+       printf("------------------ No hay almuerzos que mostrar  ------------------------\n");
+
+   }
+    system("pause");
     return todoOk;
 }
 
@@ -193,16 +201,65 @@ int mostrarAlmuerzoUnEmpleado(eAlmuerzo listadoDeAlmuerzos[], int tamanioListado
 void totalAlmuerzosUnEmpleado(eEmpleado listadoEmpleados[], int tamanioListadoEmpleados, eSector sectoresLista[], int tamanioListadoSectores, eAlmuerzo listadoAlmuerzos[], int tamanioListadoAlmuerzos, eComida listadoComidas[], int tamanioListadoComidas)
 {
   float acumulador = 0;
-  int legajo;
-  printf("total de $$ almuerzos de un empleado");
-//    for(int i= 0; i < tamanioListadoAlmuerzos, i++)
-//    {
-       // for(int j= 0; j < array comidas)
-      //  if(almuerzos[i]. is empty == 0 && almuerzos[i].idde comida == id dela comida )
-      //   flag = 1; encontre la comida de ese almuerzo
-      // acumulador += comidas[j].precio
-      printf("el empleado legajo xxx tiene un total de $ en sus almuerzos");
+  int cualEmpleado;
+  int identificadorComida;
+  char nombre[20];
+
+  printf("total a pagar almuerzos de un empleado");
+  printf("De que empleado desea calcular?");
+  mostrarEmpleados(listadoEmpleados, tamanioListadoEmpleados, sectoresLista, tamanioListadoSectores);
+  printf("ingrese legajo");
+  scanf("%d", &cualEmpleado);
+  for(int i= 0; i < tamanioListadoAlmuerzos; i++)
+  {
+      if(listadoAlmuerzos[i].legEmpleado == cualEmpleado && listadoAlmuerzos[i].isEmpty == 0)
+      {
+          identificadorComida = listadoAlmuerzos[i].idComida;
+          for(int j= 0; j < tamanioListadoComidas; j++)
+          {
+              if(listadoComidas[j].id == identificadorComida)
+              {
+                  acumulador = acumulador + listadoComidas[j].precio;
+              }
+          }
+      }
+  }
+      cargarNombreEmpleado(cualEmpleado, listadoEmpleados, tamanioListadoEmpleados, nombre);
+      printf("el empleado legajo %d %s gasto un total de $ %.2f en sus almuerzos\n", cualEmpleado, nombre, acumulador);
       system("pause");
+}
+
+void totalAlmuerzosPorSector(eEmpleado listadoEmpleados[], int tamanioListadoEmpleados, eSector sectoresLista[], int tamanioListadoSectores, eAlmuerzo listadoAlmuerzos[], int tamanioListadoAlmuerzos, eComida listadoComidas[], int tamanioListadoComidas)
+{
+    int cualSector;
+    int legajoABuscar;
+    float acumulador;
+    char descripcion[15];
+
+    printf("Ingrese de cual sector desea calcular el gasto de almuerzos\n");
+    mostrarSectores(sectoresLista, tamanioListadoSectores);
+    scanf("%d", &cualSector);
+    for(int i= 0; i < tamanioListadoEmpleados; i ++)
+    {
+        if(listadoEmpleados[i].idSector == cualSector)
+        {
+           legajoABuscar = listadoEmpleados[i].legajo; //este empleado es de ese sector
+           for(int j = 0; j < tamanioListadoAlmuerzos; j ++)
+           {
+               if(listadoAlmuerzos[j].legEmpleado == legajoABuscar) //encuentro un almuerzo de ese empleado
+               {
+                   for(int k = 0; k < tamanioListadoComidas; k ++) // recorro array de comidas
+                   {
+                       acumulador = acumulador * listadoComidas[k].precio;
+                   }
+               }
+
+           }
+        }
+    }
+    cargarDescripcionSector(cualSector, sectoresLista, tamanioListadoSectores, descripcion);
+    printf("El sector %d %s gasto un total de $ %.2f en sus almuerzos\n", cualSector, descripcion, acumulador);
+    system("pause");
 }
 
 

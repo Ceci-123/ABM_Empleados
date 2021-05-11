@@ -24,7 +24,7 @@
 1620350865 c:\users\user\desktop\repo de abm empleados\abm_empleados\libreria.h
 	"sectores.h"
 
-1620701491 source:c:\users\user\desktop\repo de abm empleados\abm_empleados\main.c
+1620736113 source:c:\users\user\desktop\repo de abm empleados\abm_empleados\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -43,7 +43,7 @@
 	"almuerzo.h"
 	"comida.h"
 
-1620673631 source:c:\users\user\desktop\repo de abm empleados\abm_empleados\informes.c
+1620704996 source:c:\users\user\desktop\repo de abm empleados\abm_empleados\informes.c
 	"informes.h"
 	"empleado.h"
 	<stdio.h>
@@ -85,7 +85,7 @@
 	<stdlib.h>
 	<string.h>
 
-1620705130 c:\users\user\desktop\repo de abm empleados\abm_empleados\comida.h
+1620736125 c:\users\user\desktop\repo de abm empleados\abm_empleados\comida.h
 	"almuerzo.h"
 	"empleado.h"
 

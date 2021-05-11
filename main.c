@@ -188,6 +188,7 @@ int main()
                     break;
                     case 6:
                         // mostrar total a pagar almuerzo de todos los sectores
+                        totalAlmuerzosPorSector(nomina, TAM, sectores, TAMC, almuerzos, TAMA, comidas, TAMC);
                     break;
                     }
                 break;
