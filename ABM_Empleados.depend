@@ -24,7 +24,7 @@
 1620350865 c:\users\user\desktop\repo de abm empleados\abm_empleados\libreria.h
 	"sectores.h"
 
-1620736113 source:c:\users\user\desktop\repo de abm empleados\abm_empleados\main.c
+1620744778 source:c:\users\user\desktop\repo de abm empleados\abm_empleados\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -32,9 +32,13 @@
 	"sectores.h"
 	"informes.h"
 	"comida.h"
+	"datawarehouse.h"
 
-1620700941 c:\users\user\desktop\repo de abm empleados\abm_empleados\datawarehouse.h
+1620744485 c:\users\user\desktop\repo de abm empleados\abm_empleados\datawarehouse.h
 	"sectores.h"
+	"fecha.h"
+	"empleado.h"
+	"almuerzo.h"
 
 1620425218 c:\users\user\desktop\repo de abm empleados\abm_empleados\sectores.h
 
@@ -50,7 +54,7 @@
 	<stdlib.h>
 	<string.h>
 
-1620701130 source:c:\users\user\desktop\repo de abm empleados\abm_empleados\empleado.c
+1620740385 source:c:\users\user\desktop\repo de abm empleados\abm_empleados\empleado.c
 	"empleado.h"
 	"datawarehouse.h"
 	"sectores.h"
@@ -58,7 +62,7 @@
 	<stdlib.h>
 	<string.h>
 
-1620678170 c:\users\user\desktop\repo de abm empleados\abm_empleados\empleado.h
+1620740771 c:\users\user\desktop\repo de abm empleados\abm_empleados\empleado.h
 	"sectores.h"
 	"fecha.h"
 
@@ -70,7 +74,7 @@
 
 1620476268 c:\users\user\desktop\repo de abm empleados\abm_empleados\fecha.h
 
-1620701635 source:c:\users\user\desktop\repo de abm empleados\abm_empleados\almuerzo.c
+1620741095 source:c:\users\user\desktop\repo de abm empleados\abm_empleados\almuerzo.c
 	"almuerzo.h"
 	"comida.h"
 	"empleado.h"
@@ -85,10 +89,16 @@
 	<stdlib.h>
 	<string.h>
 
-1620736125 c:\users\user\desktop\repo de abm empleados\abm_empleados\comida.h
+1620740730 c:\users\user\desktop\repo de abm empleados\abm_empleados\comida.h
 	"almuerzo.h"
 	"empleado.h"
 
 1620700867 c:\users\user\desktop\repo de abm empleados\abm_empleados\almuerzo.h
 	"fecha.h"
+
+1620744530 source:c:\users\user\desktop\repo de abm empleados\abm_empleados\datawarehouse.c
+	"datawarehouse.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
 

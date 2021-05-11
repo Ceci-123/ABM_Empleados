@@ -511,29 +511,6 @@ void ordenarEmpleadosPorCriterios(eEmpleado lista[], int tamanio, eSector listad
     }
 }
 
-int harcodear(eEmpleado lista[], int tamanio, int cantidadACargar, int* pLegajo, eSector sectores[])
-{
-    int todoOk = 0;
-
-    if(lista != NULL && tamanio > 0 && cantidadACargar > 0 && pLegajo != NULL)
-    {
-        for(int i=0; i < cantidadACargar; i++)
-        {
-            lista[i].legajo = *pLegajo;
-            (*pLegajo) ++;
-            strcpy(lista[i].nombre, nombres[i]);
-            lista[i].edad = edades[i];
-            lista[i].sueldo = sueldos[i];
-            lista[i].sexo = sexos[i];
-            lista[i].fechaIngreso = fechas[i];
-            lista[i].idSector = idSectores[i];
-            lista[i].isEmpty = 0;
-            todoOk ++;
-
-        }
-    }
-       return todoOk;
-}
 
 int cargarNombreEmpleado(int legajo, eEmpleado listadoEmpleados[], int tamanioListadoEmpleados, char nombre[])
 {

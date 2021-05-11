@@ -5,6 +5,7 @@
 #include "sectores.h"
 #include "informes.h"
 #include "comida.h"
+#include "datawarehouse.h"
 
 #define TAM 10
 #define TAMSECTOR 5
@@ -15,7 +16,7 @@ int main()
 {
     // variables
     char salir = 'n';
-    int nextLegajo = 200;
+    int nextLegajo = 20000;
     int nextIdAlmuerzo = 50000;
     int devolucion;
     eEmpleado nomina[TAM];   //listado de empleados
@@ -37,7 +38,7 @@ int main()
     harcodear(nomina, TAM, 8, &nextLegajo, sectores);
     flagCarga = 1; // porque hardcodeo
     inicializarAlmuerzo(almuerzos, TAMA, nextIdAlmuerzo);
-    //harcodearAlmuerzo(almuerzos, TAMA, 23, &nextIdAlmuerzo);
+    harcodearAlmuerzo(almuerzos, TAMA, 10, &nextIdAlmuerzo);
 
     do {
 

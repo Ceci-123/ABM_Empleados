@@ -174,29 +174,6 @@ int mostrarAlmuerzoUnEmpleado(eAlmuerzo listadoDeAlmuerzos[], int tamanioListado
     return 0;
 }
 
-//int harcodearAlmuerzo(eAlmuerzo lista[], int tamanio, int cantidadACargar, int* pNextId)
-//{
-//    int todoOk = 0;
-//
-//    if(lista != NULL && tamanio > 0 && cantidadACargar > 0 && pNextId != NULL)
-//    {
-//        for(int i=0; i < cantidadACargar; i++)
-//        {
-//            lista[i].id = *pNextId;
-//            (*pNextId) ++;
-//            lista[i].fecha.dia = fechasAlmuerzos[i].dia;
-//            lista[i].fecha.mes = fechasAlmuerzos[i].mes;
-//            lista[i].fecha.anio = fechasAlmuerzos[i].anio;
-//            lista[i].idComida = idComidas[i];
-//            lista[i].legEmpleado = legajos[i];
-//
-//            lista[i].isEmpty = 0;
-//            todoOk ++;
-//
-//        }
-//    }
-//       return todoOk;
-//}
 
 void totalAlmuerzosUnEmpleado(eEmpleado listadoEmpleados[], int tamanioListadoEmpleados, eSector sectoresLista[], int tamanioListadoSectores, eAlmuerzo listadoAlmuerzos[], int tamanioListadoAlmuerzos, eComida listadoComidas[], int tamanioListadoComidas)
 {
@@ -235,6 +212,7 @@ void totalAlmuerzosPorSector(eEmpleado listadoEmpleados[], int tamanioListadoEmp
     int legajoABuscar;
     float acumulador;
     char descripcion[15];
+    int comidaABuscar;
 
     printf("Ingrese de cual sector desea calcular el gasto de almuerzos\n");
     mostrarSectores(sectoresLista, tamanioListadoSectores);
@@ -248,9 +226,14 @@ void totalAlmuerzosPorSector(eEmpleado listadoEmpleados[], int tamanioListadoEmp
            {
                if(listadoAlmuerzos[j].legEmpleado == legajoABuscar) //encuentro un almuerzo de ese empleado
                {
+                   comidaABuscar = listadoAlmuerzos[j].idComida; //esta id de comida tengo q sumar
                    for(int k = 0; k < tamanioListadoComidas; k ++) // recorro array de comidas
                    {
-                       acumulador = acumulador * listadoComidas[k].precio;
+                       if(comidaABuscar == listadoComidas[k].id)
+                       {
+                          acumulador = acumulador * listadoComidas[k].precio;
+
+                       }
                    }
                }
 

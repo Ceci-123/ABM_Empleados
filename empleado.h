@@ -117,8 +117,6 @@ int modificarEmpleado(eEmpleado lista[], int tamanio, eSector sectores[], int ta
  */
 void ordenarEmpleadosPorCriterios(eEmpleado lista[], int tamanio, eSector listadoSectores[], int tamanioSectores);
 
-int harcodear(eEmpleado lista[], int tamanio, int cantidadACargar, int* pLegajo, eSector sectores[]);
-
 int cargarNombreEmpleado(int legajo, eEmpleado listadoEmpleados[], int tamanioListadoEmpleados, char nombre[]);
 
 

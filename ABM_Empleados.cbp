@@ -39,6 +39,9 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="comida.h" />
+		<Unit filename="datawarehouse.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="datawarehouse.h" />
 		<Unit filename="empleado.c">
 			<Option compilerVar="CC" />
