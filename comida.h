@@ -35,4 +35,6 @@ void totalAlmuerzosUnEmpleado(eEmpleado listadoEmpleados[], int tamanioListadoEm
 
 void totalAlmuerzosPorSector(eEmpleado listadoEmpleados[], int tamanioListadoEmpleados, eSector sectoresLista[], int tamanioListadoSectores, eAlmuerzo listadoAlmuerzos[], int tamanioListadoAlmuerzos, eComida listadoComidas[], int tamanioListadoComidas);
 
+void totalAlmuerzosListado(eEmpleado listadoEmpleados[], int tamanioListadoEmpleados, eSector sectoresLista[], int tamanioListadoSectores, eAlmuerzo listadoAlmuerzos[], int tamanioListadoAlmuerzos, eComida listadoComidas[], int tamanioListadoComidas);
+
 #endif // COMIDA_H_INCLUDED

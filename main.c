@@ -167,7 +167,8 @@ int main()
                     printf("Alta de almuerzos ingrese 3\n");
                     printf("Mostrar almuerzo de un empleado ingrese 4\n");
                     printf("Total de $$ almuerzo de un empleado ingrese 5\n");
-                    printf("Total de $$ almuerzo de los sectores ingrese 6\n");
+                    printf("Total de $$ almuerzo de cada sector ingrese 6\n");
+                    printf("Total de $$ almuerzo con listado de sectores ingrese 7\n");
                     scanf("%d", &opcion);
                     switch(opcion)
                     {
@@ -188,8 +189,12 @@ int main()
                         totalAlmuerzosUnEmpleado(nomina, TAM, sectores, TAMC, almuerzos, TAMA, comidas, TAMC);
                     break;
                     case 6:
-                        // mostrar total a pagar almuerzo de todos los sectores
+                        // mostrar total a pagar almuerzo de cada los sectores
                         totalAlmuerzosPorSector(nomina, TAM, sectores, TAMC, almuerzos, TAMA, comidas, TAMC);
+                    break;
+                    case 7:
+                        // mostrar total a pagar almuerzo de todos los sectores con listado
+                        totalAlmuerzosListado(nomina, TAM, sectores, TAMC, almuerzos, TAMA, comidas, TAMC);
                     break;
                     }
                 break;
