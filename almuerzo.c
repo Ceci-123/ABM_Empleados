@@ -263,7 +263,8 @@ void totalAlmuerzosListado(eEmpleado listadoEmpleados[], int tamanioListadoEmple
         cualSector = sectoresLista[i].idSector;
         for(int i= 0; i < tamanioListadoEmpleados; i ++)
     {
-        if(listadoEmpleados[i].idSector == cualSector)
+
+        if(listadoEmpleados[i].idSector == cualSector && listadoEmpleados[i].isEmpty == 0) // que el isempty este en 0
         {
            legajoABuscar = listadoEmpleados[i].legajo; //este empleado es de ese sector
 
@@ -293,4 +294,136 @@ void totalAlmuerzosListado(eEmpleado listadoEmpleados[], int tamanioListadoEmple
 
   system("pause");
 }
+
+void milanesasXSector(eEmpleado listadoEmpleados[], int tamanioListadoEmpleados, eSector sectoresLista[], int tamanioListadoSectores, eAlmuerzo listadoAlmuerzos[], int tamanioListadoAlmuerzos, eComida listadoComidas[], int tamanioListadoComidas)
+{
+    //cuantas milanesas se come cada sector
+    int cualSector;
+    int legajoABuscar;
+    int contadorDeMilanesas = 0;
+    char descripcion[20];
+
+    printf(" ----- Total milanesas por sectores ---------\n");
+    printf(" -------------------------------------------------------\n");
+    for(int i= 0; i < tamanioListadoSectores; i ++)
+    {
+        cualSector = sectoresLista[i].idSector;
+        for(int i= 0; i < tamanioListadoEmpleados; i ++)
+    {
+
+        if(listadoEmpleados[i].idSector == cualSector && listadoEmpleados[i].isEmpty == 0) // que el isempty este en 0
+        {
+           legajoABuscar = listadoEmpleados[i].legajo; //este empleado es de ese sector
+
+           for(int j = 0; j < tamanioListadoAlmuerzos; j ++)
+           {
+               if(listadoAlmuerzos[j].legEmpleado == legajoABuscar && listadoAlmuerzos[j].idComida == 1000)
+                //encuentro un almuerzo de ese empleado y que sea milanesa
+               {
+
+                          contadorDeMilanesas ++;
+
+               }
+
+           }
+        }
+    }
+    cargarDescripcionSector(cualSector, sectoresLista, tamanioListadoSectores, descripcion);
+    printf("El sector %d %s comio un total de %d  milanesas en sus almuerzos\n", cualSector, descripcion, contadorDeMilanesas);
+
+    }
+
+  system("pause");
+}
+
+void sectorAmanteMilanesa(eEmpleado listadoEmpleados[], int tamanioListadoEmpleados, eSector sectoresLista[], int tamanioListadoSectores, eAlmuerzo listadoAlmuerzos[], int tamanioListadoAlmuerzos, eComida listadoComidas[], int tamanioListadoComidas)
+{
+    int idMilanesa = 1000;
+    int idSector;
+    int legajoABuscar;
+    int contadores[tamanioListadoSectores];
+    int mayor = 0;
+
+   for(int s= 0; s < tamanioListadoSectores; s ++)  // recorro el array de sectores
+    {
+        contadores[s]= 0; // inicializo
+        idSector = sectoresLista[s].idSector;
+        for(int e= 0; e < tamanioListadoEmpleados; e ++)  // recorro el de empleados
+        {
+            if(listadoEmpleados[e].idSector == idSector && listadoEmpleados[e].isEmpty == 0) // que el isempty este en 0
+            {
+               legajoABuscar = listadoEmpleados[e].legajo; //este empleado es de ese sector
+
+               for(int j = 0; j < tamanioListadoAlmuerzos; j ++)
+               {
+               if(listadoAlmuerzos[j].legEmpleado == legajoABuscar && listadoAlmuerzos[j].idComida == idMilanesa && listadoAlmuerzos[j].isEmpty == 0)
+                //encuentro un almuerzo de ese empleado y que sea milanesa
+               {
+
+                   contadores[s] ++;
+
+               }
+
+           }
+        }
+    }
+    }
+    for(int k= 0; k < tamanioListadoSectores; k ++)
+    {
+       if(k == 0 || contadores[k] > mayor)
+        {
+          mayor = contadores[k];
+        }
+        //veo cual es mayot
+    }
+    printf("----Sector/es amantes de la milanesa-----------------\n");
+
+     for(int k= 0; k < tamanioListadoSectores; k ++)
+    {
+        if(contadores[k] == mayor)
+        {
+           printf("%s  ", sectoresLista[k].descripcion);
+
+        }
+
+    }
+  system("pause");
+}
+
+//void listarTotalComidasFechas(eAlmuerzo listadoAlmuerzos[], int tamanioAlmuerzos, eComida listaComidas[], int tamanioComidas)
+//{
+//    int arrayDeContadores[tamanioComidas];
+//    eFecha fecha;
+//    int cant;
+//
+//    printf("total consumuido por fecha");
+//    printf("Ingrese fecha dd/mm/aa");
+//    cant = scanf("%d/%d/%d", &fecha.dia, &fecha.mes, &fecha.anio);
+//    if(cant != 3)
+//    {
+//        printf("incorrecto, reingrese");
+//        printf("Ingrese fecha dd/mm/aa");
+//        fflush(stdin);
+//        cant = scanf("%d/%d/%d", &fecha.dia, &fecha.mes, &fecha.anio);
+//    }
+    // recorro almuerzos
+    //for(int i= 0; i < tamanioAlmuerzos; i ++)
+   // {
+       // if(fecha == listadoAlmuerzos[i].fecha && listadoAlmuerzos[i].isEmpty == 0)
+     //   {
+            // es un almuerzo de esa fecha
+            //listadoAlmuerzos[i].idComida
+
+      //  }
+  //  }
+
+
+//}
+
+//}
+
+//void ingresoPorComidas(eComida listadoComidas, int tamanioListadoComidas, eAlmuerzo listadoAlmuerzos, int tamanioListaAlmuerzo)
+
+// voy a almuerzos, por cada uno cuento q comida se comio, luego obtengo precio
+
 
