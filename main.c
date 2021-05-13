@@ -171,8 +171,8 @@ int main()
                     printf("Total de $$ almuerzo con listado de sectores ingrese 7\n");
                     printf("Cantidad de milanesas por sector ingrese 8\n");
                     printf(" sector amante de las milanesas ingrese 9\n");
-                    printf(" Recaudacion por cada tipo de comida ingrese 10\n");
-                    printf(" total de comidas por fecha ingrese 11\n");
+                    printf(" total de comidas por fecha ingrese 10\n");
+                    printf(" Recaudacion por cada tipo de comida ingrese 11\n");
                     printf(" Sector mas carnivoro ingrese 12\n");
                     scanf("%d", &opcion);
                     switch(opcion)
@@ -208,10 +208,10 @@ int main()
                         sectorAmanteMilanesa(nomina, TAM, sectores, TAMC, almuerzos, TAMA, comidas, TAMC);
                     break;
                     case 10:
-                        //listarTotalComidasFechas(nomina, TAM, sectores, TAMC, almuerzos, TAMA, comidas, TAMC);
+                        listarTotalComidasFecha(almuerzos, TAMA, comidas, TAMC);
                     break;
                     case 11:
-                       // ingresoPorComidas(nomina, TAM, sectores, TAMC, almuerzos, TAMA, comidas, TAMC);
+                        ingresoPorComidas(almuerzos, TAMA, comidas, TAMC);
                     break;
                     case 12:
                        // sectorMasCarnivoro(nomina, TAM, sectores, TAMC, almuerzos, TAMA, comidas, TAMC);

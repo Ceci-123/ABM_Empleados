@@ -41,9 +41,9 @@ void milanesasXSector(eEmpleado listadoEmpleados[], int tamanioListadoEmpleados,
 
 void sectorAmanteMilanesa(eEmpleado listadoEmpleados[], int tamanioListadoEmpleados, eSector sectoresLista[], int tamanioListadoSectores, eAlmuerzo listadoAlmuerzos[], int tamanioListadoAlmuerzos, eComida listadoComidas[], int tamanioListadoComidas);
 
-void listarTotalComidasFechas(eAlmuerzo listadoAlmuerzos[], int tamanioAlmuerzos, eComida listaComidas[], int tamanioComidas);
+void listarTotalComidasFecha(eAlmuerzo listadoAlmuerzos[], int tamanioAlmuerzos, eComida listaComidas[], int tamanioComidas);
 
-void ingresoPorComidas(eComida listadoComidas, int tamanioListadoComidas, eAlmuerzo listadoAlmuerzos, int tamanioListaAlmuerzo);
+void ingresoPorComidas(eComida listadoComidas[], int tamanioListadoComidas, eAlmuerzo listadoAlmuerzos[], int tamanioListaAlmuerzo);
 
 
 #endif // COMIDA_H_INCLUDED

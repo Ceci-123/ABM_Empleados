@@ -390,40 +390,72 @@ void sectorAmanteMilanesa(eEmpleado listadoEmpleados[], int tamanioListadoEmplea
   system("pause");
 }
 
-//void listarTotalComidasFechas(eAlmuerzo listadoAlmuerzos[], int tamanioAlmuerzos, eComida listaComidas[], int tamanioComidas)
-//{
-//    int arrayDeContadores[tamanioComidas];
-//    eFecha fecha;
-//    int cant;
-//
-//    printf("total consumuido por fecha");
-//    printf("Ingrese fecha dd/mm/aa");
-//    cant = scanf("%d/%d/%d", &fecha.dia, &fecha.mes, &fecha.anio);
-//    if(cant != 3)
-//    {
-//        printf("incorrecto, reingrese");
-//        printf("Ingrese fecha dd/mm/aa");
-//        fflush(stdin);
-//        cant = scanf("%d/%d/%d", &fecha.dia, &fecha.mes, &fecha.anio);
-//    }
+void listarTotalComidasFecha(eAlmuerzo listadoAlmuerzos[], int tamanioAlmuerzos, eComida listaComidas[], int tamanioComidas)
+{
+      // controlar resultados
+      int arrayDeContadores[tamanioComidas];
+      eFecha fecha;
+      int cant;
+
+      printf("------------total consumuido por fecha----------------\n");
+      printf("Ingrese fecha dd/mm/aa\n");
+      cant = scanf("%d/%d/%d", &fecha.dia, &fecha.mes, &fecha.anio);
+      while(cant != 3)
+      {
+          printf("fecha incorrecto, reingrese");
+          printf("Ingrese fecha dd/mm/aa");
+          fflush(stdin);
+          cant = scanf("%d/%d/%d", &fecha.dia, &fecha.mes, &fecha.anio);
+      }
+      // inicializo
+      for(int i= 0; i < tamanioComidas; i++)
+      {
+          arrayDeContadores[i]= 0;
+      }
     // recorro almuerzos
-    //for(int i= 0; i < tamanioAlmuerzos; i ++)
-   // {
-       // if(fecha == listadoAlmuerzos[i].fecha && listadoAlmuerzos[i].isEmpty == 0)
-     //   {
+      for(int i= 0; i < tamanioAlmuerzos; i ++)
+    {
+
+        if(comparaFechas(fecha, listadoAlmuerzos[i].fecha) && listadoAlmuerzos[i].isEmpty == 0)
+        {
             // es un almuerzo de esa fecha
-            //listadoAlmuerzos[i].idComida
+            arrayDeContadores[validarIdComida(listaComidas, tamanioComidas,listadoAlmuerzos[i].idComida)] ++  ;
 
-      //  }
-  //  }
+        }
+    }
+    // muestro el array de resultados
+    for(int i= 0; i < tamanioComidas; i ++)
+    {
+        printf("%d    ", arrayDeContadores[i]);
+        printf("%s\n", listaComidas[i].descripcion);
+
+    }
+   system("pause");
+}
+
+void ingresoPorComidas(eComida listadoComidas[], int tamanioListadoComidas, eAlmuerzo listadoAlmuerzos[], int tamanioListaAlmuerzo)
+{
+    int contador = 0;
+    float total;
+
+     for(int i= 0; i < tamanioListadoComidas; i ++)
+     {
+
+          for(int j = 0; j < tamanioListaAlmuerzo; j ++)
+          {
+              if(listadoAlmuerzos[j].isEmpty == 0 && listadoComidas[i].id == listadoAlmuerzos[j].idComida)
+              {
+                   contador ++;
+                   total = listadoComidas[j].precio * contador;
+                   printf(" %f total $  %s\n", total, listadoComidas[j].descripcion);
+              }
+          }
 
 
-//}
+     }
+     system("pause");
+}
 
-//}
 
-//void ingresoPorComidas(eComida listadoComidas, int tamanioListadoComidas, eAlmuerzo listadoAlmuerzos, int tamanioListaAlmuerzo)
-
-// voy a almuerzos, por cada uno cuento q comida se comio, luego obtengo precio
 
 

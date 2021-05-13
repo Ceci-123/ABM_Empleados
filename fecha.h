@@ -8,3 +8,5 @@ typedef struct{
 }eFecha;
 
 #endif // FECHA_H_INCLUDED
+
+int comparaFechas(eFecha f1, eFecha f2);
